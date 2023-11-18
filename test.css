@@ -1,0 +1,16 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+    --primary-color: #50abe4;
+    --gray-color: #d3d3d3;
+    --yellow-color: #f5be19;
+
+    --border-default: 1px solid var(--gray-color);
+    --gap-default: 25px;
+
+    --default-transition: 0.50s ease;
+}
