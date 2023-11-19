@@ -25,13 +25,16 @@ navbarPrimaryTemplate.innerHTML = `
         .logo {
             font-weight: 700;
             font-size: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
         }
 
     </style>
     <div class="content">
-        <div class="logo">
-            E-Commerce
-        </div>
+        <a class="logo" href="./home.html">
+         INFINITE CART
+        </a>
         <input-search>
             <slot slot="search-icon" name="search-icon"></slot>
         </input-search>

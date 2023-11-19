@@ -15,6 +15,8 @@ itemCartTemplate.innerHTML = `
             box-shadow: 0 16px 15px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             position: relative;
+            text-decoration: none;
+            color: inherit;
         }
 
         .img-card {
@@ -28,11 +30,7 @@ itemCartTemplate.innerHTML = `
             justify-content: center;
         }
 
-        .title {
-            font-weight: 700;
-        }
-
-        .price {
+        .title, .price  {
             font-weight: 700;
         }
 
@@ -87,23 +85,25 @@ itemCartTemplate.innerHTML = `
 
         .card-action-button {
             width: 40px;
-            background-color: "#FFFFFF";
             border: none;
+            background-color: var( --gray-weak-color );
         }
 
-        .card-action-button:first-child { border-radius: 6px 0 0 6px; }
-        .card-action-button:last-child { border-radius: 0 6px 6px 0; }
-
-        .card-action-button:hover .bi-heart-fill {
-            color: red;
+        .card-action-button:first-child { 
+            border-radius: var( --radius-default ) 0 0 var( --radius-default ); 
         }
 
-        .card-action-button i {
+        .card-action-button:last-child { 
+            border-radius: 0 var( --radius-default ) var( --radius-default ) 0; 
+        }
+
+        .card-action-button i, .card-action-button-text i {
             font-size: 18px;
         }
 
-        .card-action-button:hover {
-            color: var( --primary-color );
+        .card-action-button:hover, .card-action-button-text:hover  {
+            color: var( --blue-strong-color );
+            background-color: var( --blue-weak-color );
         }
 
         .card-action-button-text {
@@ -114,23 +114,16 @@ itemCartTemplate.innerHTML = `
             border: none;
             border-right: var( --border-default );
             border-left: var( --border-default );
-        }
-
-        .card-action-button-text:hover {
-            color: var( --primary-color );
-        }
-
-        .card-action-button-text i {
-            font-size: 18px;
+            background-color: var( --gray-weak-color );
         }
         
     </style>
-    <div class="content">
+    <a class="content" href="./produto-01.html">
        <div class="labels" id="labels"></div>
        <div class="content-informations">
             <div class="img-container">
                 <div class="img-card">
-                    <img id="img-card" width="125"></img>
+                    <img id="img-card"></img>
                 </div>
             </div>
             <div class="title" id="title">
@@ -149,17 +142,17 @@ itemCartTemplate.innerHTML = `
         </div>
         <div class="card-actions">
             <button class="card-action-button">
-                <i class="bi bi-eye-fill"></i>
+                <i class="bi bi-eye"></i>
             </button>
             <button class="card-action-button-text">
-                <i class="bi bi-cart-fill"></i>
+                <i class="bi bi-cart3"></i>
                 <p>Adicionar</p>
             </button>
             <button class="card-action-button">
-                <i class="bi bi-heart-fill"></i>
+                <i class="bi bi-heart"></i>
             </button>
         </div>
-    </div>
+    </a>
 `;
 
 class ItemCard extends HTMLElement {

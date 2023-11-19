@@ -7,7 +7,7 @@ sliderOffersTemplate.innerHTML = `
             background-size: cover; /* ajusta o tamanho da imagem para cobrir todo o elemento */
             background-position: center; /* centraliza a imagem */
             background-repeat: no-repeat; /* evita repetição da imagem */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./resources/image/1315629.png');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../resources/image/1315629.png');
 
         }
     </style>

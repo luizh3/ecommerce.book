@@ -8,6 +8,9 @@
     --primary-color: #50abe4;
     --gray-color: #d3d3d3;
     --yellow-color: #f5be19;
+    --blue-weak-color: #edf6ff;
+    --gray-weak-color: #f7f8fa;
+    --blue-strong-color: #58baff;
 
     --border-default: 1px solid var(--gray-color);
     --gap-default: 25px;
@@ -15,5 +18,6 @@
     --default-transition: 0.50s ease;
     --eerie-black: hsl(0, 0%, 13%);
     --radius-default: 2px;
+    
 }
 

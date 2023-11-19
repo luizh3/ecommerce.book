@@ -63,7 +63,7 @@ FooterPrimaryTemplate.innerHTML = `
         <div class="content-top">
             <div class="content-links">
                 <ul>
-                    <li class="logo">E-commerce</li>
+                    <li class="logo">INFINITE CART</li>
                     <li class="social-media">
                         <i class="bi bi-facebook icon-social-media"></i>
                         <i class="bi bi-whatsapp icon-social-media"></i>
@@ -94,9 +94,9 @@ FooterPrimaryTemplate.innerHTML = `
         <div>
             <div class="content-bottom">
                 <div>
-                    <img id="img-card" src="./resources/image/payment/payment.png"></img>
+                    <img id="img-card" src="../resources/image/payment/payment.png"></img>
                 </div>
-                <div>Copyright © Anon All Rights Reserved.</div>
+                <div>Copyright © All Rights Reserved.</div>
             </div>
         </div>
     </div>

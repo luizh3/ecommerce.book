@@ -16,24 +16,26 @@ subNavigationTemplate.innerHTML = `
             gap: var( --gap-default );
             font-size:18px;
             cursor: pointer;
-        }
-
-        .content-options > li {
             transition: var( --default-transition );
         }
 
-        .content-options > li:hover {
+        .content-options > a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .content-options > a:hover {
             color: var( --primary-color );
         }
 
     </style>
     <div class="content">
         <ul class="content-options">
-            <li>Home</li>
-            <li>Sobre</li>
-            <li>Categorias</li>
-            <li>Produtos</li>
-            <li>Contato</li>
+            <a href="./home.html">Home</a>
+            <a>Sobre</a>
+            <a>Categorias</a>
+            <a>Produtos</a>
+            <a>Contato</a>
         </ul>
     <div>
 `;

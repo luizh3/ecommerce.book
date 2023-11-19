@@ -14,6 +14,7 @@ inputSearchTemplate.innerHTML = `
             border: none;
             width: 500px;
             height: 35px;
+            margin-left: 10px;
         }
 
         input:focus {
