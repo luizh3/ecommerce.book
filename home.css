@@ -1,0 +1,15 @@
+.best-seller-container {
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    gap: 5px;
+}
+
+.best-seller-container:after {
+    content: '';
+    width: 5%;
+    border: var( --border-default );
+}

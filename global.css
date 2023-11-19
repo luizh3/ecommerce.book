@@ -13,4 +13,7 @@
     --gap-default: 25px;
 
     --default-transition: 0.50s ease;
+    --eerie-black: hsl(0, 0%, 13%);
+    --radius-default: 2px;
 }
+

@@ -8,6 +8,7 @@ itemContainerTemplate.innerHTML = `
             align-items:center;
             justify-content: center;
             gap: var( --gap-default );
+            margin-bottom:50px;
         }
     </style>
     <div class="content">

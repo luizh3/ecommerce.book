@@ -21,9 +21,15 @@ navbarPrimaryTemplate.innerHTML = `
             gap: var( --gap-default );
             cursor: pointer;
         }
+
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
     </style>
     <div class="content">
-        <div>
+        <div class="logo">
             E-Commerce
         </div>
         <input-search>

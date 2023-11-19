@@ -7,6 +7,7 @@ inputSearchTemplate.innerHTML = `
             background-color: white;
             display: flex;
             border: var( --border-default );
+            border-radius: var( --radius-default );
         }
 
         input {

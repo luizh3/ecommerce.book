@@ -5,8 +5,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='test.css'>
-    
+    <link rel='stylesheet' type='text/css' media='screen' href='global.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='home.css'>
+
     <!-- Imports Generic -->
     <script src='./components/LabelInformation.js'></script>
     <script src='./components/InputSearch.js'></script>
@@ -15,6 +16,7 @@
     <script src='./components/SubNavigation.js'></script>
     <script src='./components/ItemCard.js'></script>
     <script src='./components/ItemContainer.js'></script>
+    <script src='./components/FooterPrimary.js'></script>
 
     <!-- Imports Specialized -->
     <script src='./home/components/SliderOffers.js'></script>
@@ -50,6 +52,9 @@
     </sub-navigation>
     <slider-offers>
     </slider-offers>
+    <div class="best-seller-container">
+        Mais vendidos
+    </div>
     <item-container>
         <item-card 
         slot="item-0" 
@@ -58,8 +63,8 @@
         description="Acompanha o protagonista que so..."
         price="40.00"
         reviewsnumber="1"
-        score="5"
-        labels='{"types":["AVAIABLE","EBOOK"]}'/>
+        score="4"
+        labels='{"types":["AVAIABLE","EBOOK"]}'>
         </item-card>
         <item-card 
         slot="item-1" 
@@ -68,6 +73,7 @@
         description="O Estrondo esmagou as terras além..."
         price="20.00"
         reviewsnumber="3"
+        score="5"
         labels='{"types":["UNAVAIABLE","PHYSICAL"]}' >
         </item-card>
         <item-card 
@@ -77,6 +83,7 @@
         description="Narra a história de um homem comum..."
         price="30.00"
         reviewsnumber="9"
+        score="4"
         labels='{"types":["AVAIABLE","PHYSICAL"]}'>
         </item-card>
         <item-card 
@@ -89,7 +96,7 @@
         labels='{"types":["AVAIABLE","EBOOK"]}'>
         </item-card>
     </item-container>
-
+    <footer-primary></footer-primary>
 </body>
 <script>
     function myFunction(){

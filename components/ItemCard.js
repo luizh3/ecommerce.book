@@ -68,12 +68,66 @@ itemCartTemplate.innerHTML = `
             display:flex;
             gap: 5px;
         }
-        
 
+        .content:hover .card-actions {
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .content .card-actions {
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+            transform: translateY(40px);
+            visibility: hidden;
+            transition: 0.20s ease;
+            display: flex;
+            height: 45px;
+        }
+
+        .card-action-button {
+            width: 40px;
+            background-color: "#FFFFFF";
+            border: none;
+        }
+
+        .card-action-button:first-child { border-radius: 6px 0 0 6px; }
+        .card-action-button:last-child { border-radius: 0 6px 6px 0; }
+
+        .card-action-button:hover .bi-heart-fill {
+            color: red;
+        }
+
+        .card-action-button i {
+            font-size: 18px;
+        }
+
+        .card-action-button:hover {
+            color: var( --primary-color );
+        }
+
+        .card-action-button-text {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-right: var( --border-default );
+            border-left: var( --border-default );
+        }
+
+        .card-action-button-text:hover {
+            color: var( --primary-color );
+        }
+
+        .card-action-button-text i {
+            font-size: 18px;
+        }
+        
     </style>
     <div class="content">
        <div class="labels" id="labels"></div>
-        <div class="content-informations">
+       <div class="content-informations">
             <div class="img-container">
                 <div class="img-card">
                     <img id="img-card" width="125"></img>
@@ -92,6 +146,18 @@ itemCartTemplate.innerHTML = `
             <div class="price" id="price">
                 $40.00
             </div>
+        </div>
+        <div class="card-actions">
+            <button class="card-action-button">
+                <i class="bi bi-eye-fill"></i>
+            </button>
+            <button class="card-action-button-text">
+                <i class="bi bi-cart-fill"></i>
+                <p>Adicionar</p>
+            </button>
+            <button class="card-action-button">
+                <i class="bi bi-heart-fill"></i>
+            </button>
         </div>
     </div>
 `;

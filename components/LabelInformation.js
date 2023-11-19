@@ -11,6 +11,7 @@ labelInformationTemplate.innerHTML = `
             justify-content: center;
             font-weight:700;
             color: #FFFFFF;
+            border-radius: var( --radius-default );
         }
     </style>
     <div class="label">
