@@ -2,7 +2,7 @@ const inputSearchTemplate = document.createElement('template');
 inputSearchTemplate.innerHTML = `
     <style>
         .content {
-            width: 550px;
+            width: 100%;
             height: 40px;
             background-color: white;
             display: flex;
@@ -29,6 +29,7 @@ inputSearchTemplate.innerHTML = `
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            margin-right: 10px;
         }
     </style>
     <div class="content">

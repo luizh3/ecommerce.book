@@ -3,13 +3,20 @@ itemContainerTemplate.innerHTML = `
     <style>
         .content {
             width: 100%;
-            height: 350px;
+            height: auto;
             display: flex;
             align-items:center;
             justify-content: center;
             gap: var( --gap-default );
             margin-bottom:50px;
         }
+        
+        @media ( max-width: 858px ) {
+            .content {
+                flex-direction: column;
+            }
+        }
+
     </style>
     <div class="content">
         <slot name="item-0"></slot>

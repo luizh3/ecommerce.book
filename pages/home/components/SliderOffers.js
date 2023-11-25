@@ -4,9 +4,10 @@ sliderOffersTemplate.innerHTML = `
         .content {
             width: 100%;
             height: 50vh;
-            background-size: cover; /* ajusta o tamanho da imagem para cobrir todo o elemento */
-            background-position: center; /* centraliza a imagem */
-            background-repeat: no-repeat; /* evita repetição da imagem */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../resources/image/1315629.png');
 
         }

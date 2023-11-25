@@ -5,7 +5,7 @@ FooterPrimaryTemplate.innerHTML = `
 
         .content-top {
             width: 100%;
-            height: 30vh;
+            min-height: 275px;
             background-color: var( --eerie-black );
             display: flex;
             align-items:center;
@@ -56,6 +56,12 @@ FooterPrimaryTemplate.innerHTML = `
         .social-media {
             display: flex;
             gap: 10px;
+        }
+
+        @media ( max-width: 858px ) {
+            .content-links {
+                flex-direction: column;
+            }
         }
 
     </style>
