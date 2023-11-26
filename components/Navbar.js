@@ -31,6 +31,9 @@ navbarPrimaryTemplate.innerHTML = `
             font-weight: 700;
             font-size: 20px;
             cursor: pointer;
+        }
+
+        .action-element, .logo {
             text-decoration: none;
             color: inherit;
         }
@@ -121,10 +124,10 @@ navbarPrimaryTemplate.innerHTML = `
                 <slot name="heart-icon"></slot>
                 <label>Favorito</label>
             </li>
-            <li class="action-element">
+            <a class="action-element" href="./cart.html">
                 <slot name="cart-icon"></slot>
                 <label>Cart</label>
-            </li>
+            </a>
         </ul>
         <i class="menu bi bi-list"></i>
     </div>
@@ -140,12 +143,15 @@ class NavbarPrimary extends HTMLElement {
         this.menuToggle = this.shadowRoot.querySelector(".actions");
 
         var menuElement = this.shadowRoot.querySelector('.menu ');
-        menuElement.addEventListener('click', this.onMenuNavbar.bind( this ) );
+        menuElement.addEventListener('click', this.onMenuNavbar.bind( this, menuElement ) );
 
     }
 
-    onMenuNavbar() {        
+    onMenuNavbar( menuElement ) {        
         this.menuToggle.classList.toggle('activate')
+
+        menuElement.classList.toggle('bi-list')
+        menuElement.classList.toggle('bi-x')
     }
 
 }

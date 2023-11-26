@@ -95,7 +95,7 @@ paymentResumeTemplate.innerHTML = `
                 $119.00
             </div>
         </div>
-        <button-primary text="IR PARA O PAGAMENTO" ></button-primary>
+        <button-primary text="IR PARA O PAGAMENTO" id="button-payment" ></button-primary>
     </div>
 `;
 
@@ -105,6 +105,14 @@ class PaymentResume extends HTMLElement {
 
         this.attachShadow( { mode:"open" } );
         this.shadowRoot.appendChild( paymentResumeTemplate.content.cloneNode( true ) );
+    }
+
+    redirectPage( destity ) {
+        window.location.href = destity;
+    }
+
+    connectedCallback() {
+        this.shadowRoot.querySelector( "#button-payment" ).addEventListener( 'click', this.redirectPage.bind( this, './payment.html' ) );
     }
 
 }
