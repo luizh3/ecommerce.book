@@ -12,7 +12,7 @@ itemCartTemplate.innerHTML = `
             padding: 5px;
         }
 
-        .content-product-description, .content-price, .content-quantity {
+        .content-price, .content-quantity {
             flex: 1;
             height: 150px;
         }
@@ -33,6 +33,7 @@ itemCartTemplate.innerHTML = `
         .image {
             width: 150px;
             height: 150px;
+            float: left;
         }
         
         #image-cart {
@@ -44,6 +45,7 @@ itemCartTemplate.innerHTML = `
         .text-values {
             font-size: 18px;
             font-weight: 700;
+            max-width: 100px;
         }
 
         .product-remove {
@@ -83,15 +85,15 @@ itemCartTemplate.innerHTML = `
             <div class="image">
                 <img id="image-cart" src="../resources/image/attack-on-titan.png"></img>
             </div>
-            <div class="text-values">
-             Ataque dos Titãs Vol. 34
+            <div class="text-values" id="title">
+                Ataque dos Titãs Vol. 34
             </div>
         </div>
         <div class="content-quantity">
             <div class="text-values">
                 Quantidade
             </div>
-            <button-quantity class="button-quantity"></button-quantity>
+            <button-quantity class="button-quantity" id="quantity" quantity="3"></button-quantity>
             <div class="product-remove">
                 REMOVER
             </div>
@@ -100,7 +102,7 @@ itemCartTemplate.innerHTML = `
             <div class="text-values">
                 Valor Total
             </div>
-            <div class="price">
+            <div class="price" id="price">
                 $20.00
             </div>
         </div>
@@ -113,6 +115,30 @@ class ItemCartTemplate extends HTMLElement {
 
         this.attachShadow( { mode:"open" } );
         this.shadowRoot.appendChild( itemCartTemplate.content.cloneNode( true ) );
+    }
+
+    connectedCallback() {
+        this.setTitle( this.getAttribute('title') )
+        this.setImage( this.getAttribute('image-url') )
+        this.setPrice( this.getAttribute('price') )
+        this.setQuantity( this.getAttribute('quantity') );
+    }
+
+    setTitle( title ) {
+        this.shadowRoot.getElementById("title").textContent = title;
+    }
+
+    setImage( url ) {
+        this.shadowRoot.getElementById("image-cart").src = url;
+    }
+
+    setQuantity( quantity ) {
+       let element = this.shadowRoot.querySelector("#quantity");
+       element.setAttribute('quantity', quantity );
+    }
+
+    setPrice( price) {
+        this.shadowRoot.getElementById("price").textContent = `$${price}`;
     }
 
 }

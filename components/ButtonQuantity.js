@@ -32,7 +32,7 @@ buttonQuantityTemplate.innerHTML = `
         <button class="icon">
             <i class="bi bi-plus-lg"></i>
         </button>
-            <div style="font-weight: 700;">
+            <div style="font-weight: 700;" id="quantity">
                 3
             </div>
         <button class="icon">
@@ -47,6 +47,38 @@ class ButtonQuantity extends HTMLElement {
 
         this.attachShadow( { mode:"open" } );
         this.shadowRoot.appendChild( buttonQuantityTemplate.content.cloneNode( true ) );
+    }
+
+    static get observedAttributes() { 
+        return ['quantity']; 
+    }
+
+    get quantity() {
+        return this.getAttribute( 'quantity' );
+    }
+
+    set quantity( value ) {
+        this.setAttribute( 'quantity', value );
+    }
+
+    attributeChangedCallback( name, oldValue, newValue ) {
+        
+        switch( name.toLowerCase() ){
+            case 'quantity':
+                this.setQuantity( newValue )
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    setQuantity( quantity ) {
+        this.shadowRoot.getElementById( "quantity" ).textContent = quantity;
+    }
+
+    setAlgumaCoisa() {
+        console.log( 'aaa' )
     }
 }
 

@@ -46,9 +46,34 @@ class ButtonPrimary extends HTMLElement {
         this.shadowRoot.getElementById("icon").classList.add( icon );
     }
 
+    adjustButtonOutline() {
+        let content = this.shadowRoot.querySelector(".content");
+        content.style.backgroundColor = "#FFFFFF";
+        content.style.border = "1px solid var( --blue-strong-color )";
+        content.style.color = "var( --blue-strong-color )";
+    }
+
+    adjustButtonByType( type ) {
+
+        switch( type ) {
+            case 'OUTLINE':
+                this.adjustButtonOutline();
+                break;
+            default:
+                break;
+        }
+
+    }
+
     connectedCallback() {
 
         this.shadowRoot.querySelector(".content").textContent = this.attributes.text.value;
+
+        const dsStyleType = this.getAttribute('style-type');
+
+        if( dsStyleType ){
+            this.adjustButtonByType( dsStyleType );
+        }
 
         if( this.attributes.icon ){
             this.setIcon( this.attributes.icon.value  );

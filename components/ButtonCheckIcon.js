@@ -33,6 +33,15 @@ buttonCheckIconTemplate.innerHTML = `
             object-fit: contain;
         }
 
+        @media ( max-width: 936px ) {
+
+           .content {
+             width: 125px;
+             font-size: 13px;
+           }
+        
+        }
+
     </style>
     <div class="content">
         <div class="content-image">

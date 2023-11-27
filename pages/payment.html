@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="content-payment-align">
                 <div class="text-payment"> Escolha a forma de pagamento </div>
                 <div class="content-payment-methods">
                     <button-check-icon url="../resources/image/payment/card.png" text="Pagar com Cartão" selected="true"></button-check-icon>
@@ -94,6 +94,7 @@
                     </card-payment>
                 </div>
                 <div class="content-not-registered-card">
+                    <label class="title-card-not-register">Utilizar cartão não cadastrado</label>
                     <div class="content-input-width">
                         <input-label class="input-card-informations" text="Nome no cartão" placeholder="Ex: Irineu"></input-label>
                     </div>
@@ -111,6 +112,14 @@
                     <div class="content-input-width">
                         <input-label class="input-card-informations" text="Código de segurança (CVV)" placeholder="Ex: 123"></input-label>
                     </div>
+                </div>
+            </div>
+            <div class="content-buttons">
+                <div class="content-button">
+                    <button-primary id="button-confirm" text="Voltar para o carrinho" style-type="OUTLINE"></button-primary>
+                </div>
+                <div class="content-button">
+                    <button-primary id="button-cancel" text="Confirmar pagamento"></button-primary>
                 </div>
             </div>
         </div>

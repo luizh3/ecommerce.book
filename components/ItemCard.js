@@ -164,27 +164,116 @@ class ItemCard extends HTMLElement {
 
     }
 
-    setSrcImage( url ){
+    static get observedAttributes() { 
+        return ['imageurl','title','description','price','reviewsnumber', 'score', 'labels' ]; 
+    }
+
+    get labels() { 
+        return this.getAttribute( 'labels' );
+    }
+
+    set labels( value ) {
+        this.setAttribute( 'labels', value );
+    }
+
+    get score() { 
+        return this.getAttribute( 'score' );
+    }
+
+    set score( value ) {
+        this.setAttribute( 'score', value );
+    }
+
+    get reviewsNumber() { 
+        return this.getAttribute( 'reviewsnumber' );
+    }
+
+    set reviewsNumber( value ) {
+        this.setAttribute( 'reviewsnumber', value );
+    }
+
+    get price() { 
+        return this.getAttribute( 'price' );
+    }
+
+    set price( value ) {
+        this.setAttribute( 'price', value );
+    }
+
+    get description() { 
+        return this.getAttribute(' description' );
+    }
+
+    set description( value ) {
+        this.setAttribute( 'description', value );
+    }
+
+    get imageURL() { 
+        return this.getAttribute(' imageurl' );
+    }
+
+    set imageURL( value ) {
+        this.setAttribute( 'imageurl', value );
+    }
+
+    get title() { 
+        return this.getAttribute(' title' );
+    }
+
+    set title( value ) {
+        this.setAttribute( 'title', value );
+    }
+
+    attributeChangedCallback( name, oldValue, newValue ) {
+        
+        switch( name.toLowerCase() ){
+            case 'imageurl':
+                this.setSrcImageElement( newValue );
+                break;
+            case 'title':
+                this.setTitleElement( newValue );
+                break;
+            case 'description':
+                this.setDescriptionElement( newValue );
+                break;
+            case 'price':
+                this.setPriceElement( newValue );
+                break;
+            case 'reviewsnumber':
+                this.setReviewsNumberElement( newValue );
+                break;
+            case 'score':
+                this.setScoreElement( newValue );
+                break;
+            case 'labels':
+                this.setLabelsElement( newValue );
+                break;
+            default:
+                break;
+        }
+    }
+
+    setSrcImageElement( url ){
         this.shadowRoot.getElementById('img-card').src = url;
     }
 
-    setTitle( title ){
+    setTitleElement( title ){
         this.shadowRoot.getElementById('title').textContent = title;
     }
 
-    setDescription( description ) {
+    setDescriptionElement( description ) {
         this.shadowRoot.getElementById('description').textContent = description;
     }
 
-    setPrice( price ){
+    setPriceElement( price ){
         this.shadowRoot.getElementById('price').textContent = `R$ ${price}`;
     }
 
-    setReviewsNumber( reviewsNumber ){
+    setReviewsNumberElement( reviewsNumber ){
         this.shadowRoot.getElementById('reviews-number').textContent = `(${reviewsNumber})`;
     }
 
-    setLabels( typesJson ){
+    setLabelsElement( typesJson ){
 
         const json = JSON.parse(typesJson)
 
@@ -219,7 +308,7 @@ class ItemCard extends HTMLElement {
         } )
     }
 
-    setScore( score ) {
+    setScoreElement( score ) {
 
         const nrScore = parseInt( score );
 
@@ -227,14 +316,14 @@ class ItemCard extends HTMLElement {
 
         let starsScoreContainer = this.shadowRoot.getElementById('stars-score');
 
-        let nrStarsNegative = nrScore === 0 ? 5 : nrScore - nrMaxScore;
+        let nrStarsNegative = nrScore === 0 ? 5 : nrMaxScore - nrScore;
 
         console.log( nrStarsNegative )
 
         for( let i = 0; i < nrScore; i++ ){
             let filledStar = document.createElement('i');
             filledStar.className = 'bi bi-star-fill';
-            filledStar.style.color = '#f5be19';
+            filledStar.style.color = 'var( --yellow-color )';
             starsScoreContainer.appendChild( filledStar )
         }
 
@@ -245,22 +334,6 @@ class ItemCard extends HTMLElement {
             starsScoreContainer.appendChild( emptyStar )
         }
     }
-
-    connectedCallback() {
-        this.setSrcImage( this.attributes.imageurl.value );
-        this.setTitle( this.attributes.title.value );
-        this.setDescription( this.attributes.description.value );
-        this.setPrice( this.attributes.price.value );
-        this.setReviewsNumber( this.attributes.reviewsnumber.value );
-
-        this.setScore( this.attributes.score ? this.attributes.score.value : "0" );
-
-        if( this.attributes.labels ){
-            this.setLabels( this.attributes.labels.value )
-        };
-    }
-
-
 }
 
 window.customElements.define( 'item-card', ItemCard )

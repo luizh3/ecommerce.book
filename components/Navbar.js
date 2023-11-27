@@ -142,7 +142,7 @@ class NavbarPrimary extends HTMLElement {
 
         this.menuToggle = this.shadowRoot.querySelector(".actions");
 
-        var menuElement = this.shadowRoot.querySelector('.menu ');
+        var menuElement = this.shadowRoot.querySelector('.menu');
         menuElement.addEventListener('click', this.onMenuNavbar.bind( this, menuElement ) );
 
     }
