@@ -11,6 +11,7 @@
     --blue-weak-color: #edf6ff;
     --gray-weak-color: #f7f8fa;
     --blue-strong-color: #58baff;
+    --blue-hover-color: #3daeff;
     --red-color: #ff0000;
 
     --border-default: 1px solid var(--gray-color);
