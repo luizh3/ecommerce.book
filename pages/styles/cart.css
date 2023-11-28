@@ -5,14 +5,14 @@
     justify-content: center;
     margin-bottom: 50px;
     margin-top: 50px;
-    gap: 20px;
+    gap: var( --gap-default );
 }
 
 .content-items {
     width: 60%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var( --gap-default );
 }
 
 @media ( max-width: 858px ) {

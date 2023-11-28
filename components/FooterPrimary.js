@@ -100,7 +100,7 @@ FooterPrimaryTemplate.innerHTML = `
         <div>
             <div class="content-bottom">
                 <div>
-                    <img id="img-card" src="../resources/image/payment/payment.png"></img>
+                    <img id="img-card" src="./resources/image/payment/payment.png"></img>
                 </div>
                 <div>Copyright © All Rights Reserved.</div>
             </div>

@@ -1,60 +1,55 @@
 .content-registered-cards {
-    display: flex;
-    flex-direction: column;
     gap: 20px;
+    width: 450px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     background-color: var( --gray-weak-color );
     border-radius: var( --radius-default );
-    width: 450px;
+}
+
+.display-flex-center {
+    display: flex;
     align-items: center;
-    padding: 10px;
+    justify-content: center;
 }
 
 .content {
     width: 100%;
     height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .content-center {
     width: 60%;
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
 }
 
 .content-address {
     width: 80%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     min-width: 900px;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .content-card {
-    display: flex;
     gap: 20px;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 25px;
     width: 80%;
+    margin-bottom: var( --gap-default );
 }
 
 .text-payment, .title-address, .title-card-not-register {
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: var( --font-weight-bold );
+    font-size: var( --font-size-bold );
 }
 
 .text-payment, .title-address {
-    margin-top: 25px;
+    margin-top: var( --gap-default );
 }
 
-
 .title-address{
-    margin-bottom: 25px;
+    margin-bottom: var( --gap-default );
 }
 
 .addrees-register {
@@ -70,11 +65,11 @@
     height: 60px;
     background-color: var( --blue-strong-color );
     border-radius: var( --radius-default );
-    font-weight: 700;
+    font-weight: var( --font-weight-bold );
     display: flex;
     max-width: 900px;
     align-items: center;
-    color: #FFFFFF;
+    color: var( --color-text-focus );
     padding: 10px;
     gap: 10px;
 }
@@ -87,25 +82,19 @@
 }
 
 .content-payment-methods {
-    display: flex;
-    gap: 25px;
+    gap: var( --gap-default );
     margin-bottom: 30px;
-    margin-top: 25px;
+    margin-top: var( --gap-default );
     background-color: var( --gray-weak-color);
     height: 150px;
-    align-items: center;
-    justify-content: center;
 }
 
 .content-addrees-registers {
     background-color: var(--gray-weak-color);
     width: 100%;
     height: 150px;
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    gap: 25px;
-    align-items: center;
+    gap: var( --gap-default );
 }
 
 .content-not-registered-card {
@@ -124,7 +113,7 @@
 
 .content-input-date {
     display: flex;
-    gap: 25px;
+    gap: var( --gap-default );
 }
 
 .content-input-date-width {
@@ -137,10 +126,10 @@
 }
 
 .content-buttons {
-    display: flex;
     gap: 15px;
-    margin-bottom: 50px;
     width: 100%;
+    display: flex;
+    margin-bottom: 50px;
     justify-content: center;
 }
 
@@ -177,14 +166,6 @@
 
     .content-center {
         width: 95%;
-    }
-
-    #button-confirm {
-        order: 1;
-    }
-
-    #button-cancel {
-        order: 2;
     }
 
     .content-card {

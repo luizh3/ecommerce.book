@@ -5,6 +5,9 @@
 }
 
 :root {
+
+    /* Colors */
+
     --primary-color: #50abe4;
     --gray-color: #d3d3d3;
     --yellow-color: #f5be19;
@@ -13,8 +16,10 @@
     --blue-strong-color: #58baff;
     --blue-hover-color: #3daeff;
     --red-color: #ff0000;
+    --color-text-focus: #FFFFFF;
 
     --border-default: 1px solid var(--gray-color);
+    
     --gap-default: 25px;
 
     --default-transition: 0.50s ease;
@@ -23,7 +28,15 @@
 
     --box-shadow-default: 0px 4px 8px rgba(0, 0, 0, 0.1);
 
-    /* z-indexs */
+    --font-weight-bold: 700;
+
+    /* Fonts size */
+
+    --font-size-bold: 20px;
+    --font-size-title: 25px;
+    --font-size-15: 15px;
+
+    /* Z-indexs */
 
     --nav-bar-index-fixed: 100;
 }

@@ -11,7 +11,7 @@ navbarPrimaryTemplate.innerHTML = `
             justify-content: space-evenly;
             border-bottom: var( --border-default );
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color:#FFFFFF;
+            background-color: #FFFFFF;
         }
 
         .action-element {
@@ -54,7 +54,7 @@ navbarPrimaryTemplate.innerHTML = `
             }
 
             .logo {
-                font-size: 15px;
+                font-size: var( --font-size-15 );
             }
 
             .content {
@@ -96,7 +96,7 @@ navbarPrimaryTemplate.innerHTML = `
                 flex-direction: row;
                 gap: 10px;
                 padding: 5px;
-                font-weight: 700;
+                font-weight: var( --font-weight-bold );
                 border-radius: var( --radius-default );
             }
 

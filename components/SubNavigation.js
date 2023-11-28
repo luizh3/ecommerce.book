@@ -8,7 +8,7 @@ subNavigationTemplate.innerHTML = `
             margin-right: 75px;
         }
         .content-options {
-            display:flex;
+            display: flex;
             list-style-type: none;
             padding: 0px;
             justify-content: center;

@@ -52,7 +52,7 @@ cardPaymentTemplate.innerHTML = `
     </style>
     <div class="content">
         <div class="content-image">
-            <img src="../resources/image/payment/visa.png"></img>
+            <img></img>
         </div>
         <div class="content-informations">
             <div class="space-between" id="informations">

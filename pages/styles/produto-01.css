@@ -1,29 +1,41 @@
+.display-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .path-product {
     width: 100%;
     height: 40px;
     background-color: var( --gray-weak-color );
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
 }
 
 .path-product-directory {
     color: var(--primary-color);
-    font-weight: 700;
+}
+
+.path-product-name,
+.path-product-directory,
+.name-product,
+.value-price-product,
+.value-title-product,
+.value-discont-product,
+.button-radio,
+.calculate-shipping,
+.button-cart,
+.button-icon,
+.font-bold {
+    font-weight: var( --font-weight-bold );
 }
 
 .path-product-name {
-    font-weight: 700;
     margin-left: 5px;
 }
 
 .container {
     width: 100%;
     height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 75px;
 }
 
@@ -36,17 +48,11 @@
 .image-product-container {
     width: 100%;
     height: auto;
-    display: flex;
     position: relative;
-    align-items: center;
-    justify-content: center;
 }
 
 .image-product {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .container-left {
@@ -55,12 +61,12 @@
     height: auto;
 }
 
-.img-item {
+.image-item {
     width: 300px;
     height: 300px;
 }
 
-#img-item {
+#image-item {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -79,8 +85,7 @@
 }
 
 .name-product {
-    font-weight: 700;
-    font-size: 25px;
+    font-size: var( --font-size-title );
 }
 
 .reviews-product {
@@ -94,14 +99,13 @@
 }
 
 .value-title-product{
-    font-size: 20px;
+    font-size: var( --font-size-bold );
     display: flex;
     gap: 10px;
-    font-weight: 700;
 }
 
 .value-informations-product{
-    font-size: 15px;
+    font-size: var( --font-size-15 );
     font-weight: normal;
 }
 
@@ -112,19 +116,17 @@
 }
 
 .value-price-product {
-    font-size: 25px;
-    font-weight: 700;
+    font-size: var( --gap-default );
     color:#00d700;
 }
 
 .value-discont-product {
     font-size: 20px;
-    font-weight: 700;
     text-decoration: line-through;
     color: var( --gray-color );
 }
 
-.book-physical {
+.button-radio {
     width: 150px;
     height: 50px;
     border-radius: var( --radius-default );
@@ -134,12 +136,11 @@
     gap: 10px;
     cursor: pointer;
     background-color: var( --gray-weak-color );
-    font-weight: 700;
 }
 
-.book-physical:has(input[type="radio"]:checked) {
+.button-radio:has(input[type="radio"]:checked) {
     background-color: var( --blue-strong-color );
-    color: #FFFFFF;
+    color: var( --color-text-focus );
 }
   
 .books-types{
@@ -152,15 +153,15 @@
     height: 50px;
     border: none;
     border-radius: var( --radius-default );
-    justify-content: center;
-    align-items: center;
-    display: flex;
     gap: 10px;
     cursor: pointer;
     background-color: var( --blue-strong-color );
-    font-weight: 700;
-    color: #FFFFFF;
+    color: var( --color-text-focus );
     padding: 10px;
+}
+
+.button-cart:hover {
+    background-color: var( --blue-hover-color );
 }
 
 .button-cart > i {
@@ -180,9 +181,8 @@
     height: 50px;
     background-color: var( --blue-strong-color );
     border: none;
-    font-weight: 700;
     font-size: 18px;
-    color: #FFFFFF;
+    color: var( --color-text-focus );
 }
 
 .path-product > div {
@@ -230,7 +230,7 @@
 .input-shipping-content {
     width: 250px;
     height: 50px;
-    background-color: white;
+    background-color: #FFFFFF;
     display: flex;
     border: var( --border-default );
     border-radius: var( --radius-default );
@@ -259,12 +259,11 @@
 
 .calculate-shipping > span {
     font-size: 18px;
-    font-weight: 700;
 }
 
 .calculate-shipping-align {
-    display: flex;
     gap: 10px;
+    display: flex;
     align-items: center;
 }
 
@@ -294,7 +293,7 @@
         width: 100%;
     }
 
-    .img-item {
+    .image-item {
         width: 250px;
         height: 250px;
     }

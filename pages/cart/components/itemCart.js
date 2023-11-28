@@ -83,7 +83,7 @@ itemCartTemplate.innerHTML = `
     <div class="content">
         <div class="content-product-description">
             <div class="image">
-                <img id="image-cart" src="../resources/image/attack-on-titan.png"></img>
+                <img id="image-cart"></img>
             </div>
             <div class="text-values" id="title">
                 Ataque dos Titãs Vol. 34

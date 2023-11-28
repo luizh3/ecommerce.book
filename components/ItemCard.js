@@ -31,7 +31,7 @@ itemCartTemplate.innerHTML = `
         }
 
         .title, .price  {
-            font-weight: 700;
+            font-weight: var( --font-weight-bold );
         }
 
         .description {
@@ -39,7 +39,7 @@ itemCartTemplate.innerHTML = `
         }
 
         .reviews-number {
-            font-size: 15px;
+            font-size: var( --font-size-15 );
             color: var( --yellow-color );
         }
 
@@ -88,7 +88,7 @@ itemCartTemplate.innerHTML = `
             border: none;
             background-color: var( --blue-strong-color );
             color: #FFFFFF;
-            font-size: 15px;
+            font-size: var( --font-size-15 );
         }
 
         .card-action-button:first-child { 
@@ -117,7 +117,7 @@ itemCartTemplate.innerHTML = `
             border-left: var( --border-default );
             background-color: var( --blue-strong-color );
             color: #FFFFFF;
-            font-size: 15px;
+            font-size: var( --font-size-15 );
         }
         
     </style>

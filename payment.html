@@ -8,18 +8,18 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
     <!-- Imports css -->
-    <link rel='stylesheet' type='text/css' media='screen' href='./styles/payment.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../global.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./pages/styles/payment.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./global.css'>
 
     <!-- Imports Generic -->
-    <script src='../components/LabelInformation.js'></script>
-    <script src='../components/ButtonPrimary.js'></script>
-    <script src='../components/Navbar.js'></script>
-    <script src='../components/FooterPrimary.js'></script>
-    <script src='../components/InputSearch.js'></script>
-    <script src="../components/CardPayment.js"></script>
-    <script src="../components/InputLabel.js"></script>
-    <script src="../components/ButtonCheckIcon.js"></script>
+    <script src='./components/LabelInformation.js'></script>
+    <script src='./components/ButtonPrimary.js'></script>
+    <script src='./components/Navbar.js'></script>
+    <script src='./components/FooterPrimary.js'></script>
+    <script src='./components/InputSearch.js'></script>
+    <script src="./components/CardPayment.js"></script>
+    <script src="./components/InputLabel.js"></script>
+    <script src="./components/ButtonCheckIcon.js"></script>
 
     <!-- Imports Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,13 +33,13 @@
 <body>
     <navbar-primary>
     </navbar-primary>
-    <div class="content">
-        <div class="content-center">
+    <div class="content display-flex-center">
+        <div class="content-center display-flex-center">
             <div class="content-address">
                 <div class="title-address">    
                     Seus endereços
                 </div>
-                <div class="content-addrees-registers">
+                <div class="content-addrees-registers display-flex-center">
                     <div class="addrees-element">
                         <input type="radio" checked></input>
                         Irineu da silva, Rua Imaginária, 123, Bairro dos Sonhos, Cidade Ilusória, Estado dos Devaneios, CEP: 12345-678
@@ -52,34 +52,34 @@
             </div>
             <div class="content-payment-align">
                 <div class="text-payment"> Escolha a forma de pagamento </div>
-                <div class="content-payment-methods">
-                    <button-check-icon url="../resources/image/payment/card.png" text="Pagar com Cartão" selected="true"></button-check-icon>
-                    <button-check-icon url="../resources/image/payment/pix.png" text="Pagar com Pix"></button-check-icon>
-                    <button-check-icon url="../resources/image/payment/paypal.png" text="Pagar com Paypal"></button-check-icon>
+                <div class="content-payment-methods display-flex-center">
+                    <button-check-icon url="./resources/image/payment/card.png" text="Pagar com Cartão" selected="true"></button-check-icon>
+                    <button-check-icon url="./resources/image/payment/pix.png" text="Pagar com Pix"></button-check-icon>
+                    <button-check-icon url="./resources/image/payment/paypal.png" text="Pagar com Paypal"></button-check-icon>
                 </div>
             </div>
-            <div class="content-card">
+            <div class="content-card display-flex-center">
                 <div class="content-registered-cards">
                     <card-payment 
                     label="Padrão"
                     dateMonthYear="02/26"
                     lastnumbers="1254"
-                    url="../resources/image/payment/visa.png">
+                    url="./resources/image/payment/visa.png">
                     </card-payment>
                     <card-payment 
                     dateMonthYear="05/24"
                     lastnumbers="4534"
-                    url="../resources/image/payment/mastercard.png">
+                    url="./resources/image/payment/mastercard.png">
                     </card-payment>
                     <card-payment 
                     dateMonthYear="11/26"
                     lastnumbers="8676"
-                    url="../resources/image/payment/visa.png">
+                    url="./resources/image/payment/visa.png">
                     </card-payment>
                     <card-payment 
                     dateMonthYear="12/28"
                     lastnumbers="3454"
-                    url="../resources/image/payment/mastercard.png">
+                    url="./resources/image/payment/mastercard.png">
                     </card-payment>
                 </div>
                 <div class="content-not-registered-card">

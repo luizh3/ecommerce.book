@@ -9,7 +9,7 @@ labelInformationTemplate.innerHTML = `
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight:700;
+            font-weight: var( --font-weight-bold );
             color: #FFFFFF;
             border-radius: var( --radius-default );
         }

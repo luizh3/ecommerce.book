@@ -8,7 +8,7 @@ sliderOffersTemplate.innerHTML = `
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../resources/image/1315629.png');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./resources/image/1315629.png');
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -17,12 +17,12 @@ sliderOffersTemplate.innerHTML = `
 
         .title {
             color: #FFFFFF;
-            font-weight: 700;
+            font-weight: var( --font-weight-bold );
             font-size: 45px;
         }
 
         .description {
-            color: white;
+            color: var( --color-text-focus );
             font-size: 18px;
             width: 700px;
         }
@@ -35,7 +35,7 @@ sliderOffersTemplate.innerHTML = `
             width: 80%;
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: var( --gap-default );
         }
 
         
@@ -47,7 +47,7 @@ sliderOffersTemplate.innerHTML = `
             }
 
             .title {
-                font-size: 25px;
+                font-size: var( --font-size-title );
             }
 
             .description {
