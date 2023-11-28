@@ -31,7 +31,7 @@ subNavigationTemplate.innerHTML = `
     </style>
     <div class="content">
         <ul class="content-options">
-            <a href="./home.html">Home</a>
+            <a href="./index.html">Home</a>
             <a>Sobre</a>
             <a>Categorias</a>
             <a>Produtos</a>

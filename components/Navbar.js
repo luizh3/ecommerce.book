@@ -109,7 +109,7 @@ navbarPrimaryTemplate.innerHTML = `
 
     </style>
     <div class="content">
-        <a class="logo" href="./home.html">
+        <a class="logo" href="./index.html">
          INFINITE CART
         </a>
         <input-search class="input-search">
