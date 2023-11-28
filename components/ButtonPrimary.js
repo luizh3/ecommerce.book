@@ -22,7 +22,7 @@ buttonPrimaryTemplate.innerHTML = `
         }
 
         .content:hover {
-            opacity: 0.9;
+            background-color: var(--blue-hover-color);
         }
         
         .content > i {

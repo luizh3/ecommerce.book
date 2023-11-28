@@ -86,7 +86,9 @@ itemCartTemplate.innerHTML = `
         .card-action-button {
             width: 40px;
             border: none;
-            background-color: var( --gray-weak-color );
+            background-color: var( --blue-strong-color );
+            color: #FFFFFF;
+            font-size: 15px;
         }
 
         .card-action-button:first-child { 
@@ -102,8 +104,7 @@ itemCartTemplate.innerHTML = `
         }
 
         .card-action-button:hover, .card-action-button-text:hover  {
-            color: var( --blue-strong-color );
-            background-color: var( --blue-weak-color );
+            background-color: var( --blue-hover-color );
         }
 
         .card-action-button-text {
@@ -114,7 +115,9 @@ itemCartTemplate.innerHTML = `
             border: none;
             border-right: var( --border-default );
             border-left: var( --border-default );
-            background-color: var( --gray-weak-color );
+            background-color: var( --blue-strong-color );
+            color: #FFFFFF;
+            font-size: 15px;
         }
         
     </style>

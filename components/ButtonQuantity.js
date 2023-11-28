@@ -24,7 +24,7 @@ buttonQuantityTemplate.innerHTML = `
     }
 
     .icon:hover {
-        opacity: 0.9;
+        background-color: var(--blue-hover-color);
     }
         
     </style>

@@ -113,19 +113,23 @@ navbarPrimaryTemplate.innerHTML = `
          INFINITE CART
         </a>
         <input-search class="input-search">
-            <slot slot="search-icon" name="search-icon"></slot>
+            <span slot="search-icon" class="bi bi-search" style="font-size: 15px;">
+            </span> 
         </input-search>
         <ul class="actions">
             <li class="action-element">
-                <slot name="person-icon"></slot>
+                <span class="bi bi-person" style="font-size: 20px; font:bold">
+                </span>
                 <label>Perfil</label>
             </li>
             <li class="action-element">
-                <slot name="heart-icon"></slot>
+                <span class="bi bi-heart" style="font-size: 20px;">
+                </span>
                 <label>Favorito</label>
             </li>
             <a class="action-element" href="./cart.html">
-                <slot name="cart-icon"></slot>
+                <span class="bi bi-cart3" style="font-size: 20px;">
+                </span>
                 <label>Cart</label>
             </a>
         </ul>
