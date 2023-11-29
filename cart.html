@@ -11,6 +11,8 @@
     <link rel='stylesheet' type='text/css' media='screen' href='./pages/styles/cart.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./global.css'>
 
+    <script src='./pages/scripts/cart.js'></script>
+
    <!-- Imports Specialized -->
     <script src='./pages/cart/components/itemCart.js'></script>
     <script src='./pages/cart/components/PaymentResume.js'></script>
@@ -21,6 +23,10 @@
     <script src='./components/FooterPrimary.js'></script>
     <script src='./components/ButtonQuantity.js'></script>
     <script src="./components/ButtonPrimary.js"></script>
+    <script src='./components/CartEmpty.js'></script>
+
+    <!-- Imports Utils -->
+    <script src="./builder/event/EventItem.js"></script>
 
     <!-- Imports Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,21 +42,6 @@
     </navbar-primary>
     <div class="content">
         <div class="content-items">
-            <item-cart 
-            title="Ataque dos Titãs Vol. 34" 
-            image-url="./resources/image/attack-on-titan.png" 
-            price="20.00" 
-            quantity="1"></item-cart>
-            <item-cart 
-            title="O estrangeiro" 
-            image-url="./resources/image/camus-o-estrangeiro.png" 
-            price="30.00" 
-            quantity="2"></item-cart>
-            <item-cart 
-            title="O Mito de Sísifo" 
-            image-url="./resources/image/mito-de-sisifo.png" 
-            price="50.00" 
-            quantity="3"></item-cart>
         </div>
         <payment-resume>
         </payment-resume>

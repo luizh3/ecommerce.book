@@ -66,7 +66,7 @@ itemCartTemplate.innerHTML = `
             font-weight: 700;
         }
 
-        @media ( max-width: 858px ) {
+        @media ( max-width: 900px ) {
             .content {
                 max-width: 425px;
             }
@@ -94,7 +94,7 @@ itemCartTemplate.innerHTML = `
                 Quantidade
             </div>
             <button-quantity class="button-quantity" id="quantity" quantity="3"></button-quantity>
-            <div class="product-remove">
+            <div class="product-remove" id="remove-button">
                 REMOVER
             </div>
         </div>
@@ -115,13 +115,97 @@ class ItemCartTemplate extends HTMLElement {
 
         this.attachShadow( { mode:"open" } );
         this.shadowRoot.appendChild( itemCartTemplate.content.cloneNode( true ) );
+
+        this.quantityElement = this.shadowRoot.querySelector("#quantity");
+
+    }
+
+    static get observedAttributes() { 
+        return [ 'title', 'image-url', 'price', 'quantity' ]; 
+    }
+
+    get item() {
+        this.getAttribute( 'item' );
+    }
+
+    set item( value ) {
+        this.setAttribute( 'item', value );
+    }
+
+    get quantity() {
+        this.getAttribute( 'quantity' );
+    }
+
+    set quantity( value ) {
+        this.setAttribute( 'quantity', value );
+    }
+    
+    get price() {
+        this.getAttribute( 'price' );
+    }
+
+    set price( value ) {
+        this.setAttribute( 'price', value );
+    }
+
+    get imageUrl() {
+        this.getAttribute( 'image-url' );
+    }
+
+    set imageUrl( value ) {
+        this.setAttribute( 'image-url', value );
+    }
+
+    get title() {
+        this.getAttribute( 'title' );
+    }
+
+    set title( value ) {
+        this.setAttribute( 'title', value );
+    }
+
+    remove() {
+        this.parentNode.removeChild( this );
+        this.dispatchEvent( EventItem.removeItem( this.sequence ) );
     }
 
     connectedCallback() {
-        this.setTitle( this.getAttribute('title') )
-        this.setImage( this.getAttribute('image-url') )
-        this.setPrice( this.getAttribute('price') )
-        this.setQuantity( this.getAttribute('quantity') );
+
+        this.shadowRoot.getElementById( "remove-button" ).addEventListener( 'click', this.remove.bind( this ) );
+
+        this.quantityElement.addEventListener( EventItem.nameQuantityChanged(), ( event ) => {
+
+            const item = event.detail.item;
+
+            if( item.quantity == 0 ) {
+                this.remove();
+            }
+        
+            this.updatePriceAndQuantity( event.detail.item )
+
+            this.dispatchEvent( EventItem.quantityChanged( event.detail.item ) );
+        } )
+    }
+
+    attributeChangedCallback( name, oldValue, newValue ) {
+        
+        switch( name.toLowerCase() ){
+            case 'title':
+                this.setTitle( newValue )
+                break;
+            case 'image-url':
+                this.setImage( newValue );
+                break;
+            case 'price':
+                this.setPrice( newValue );
+                break;
+            case 'quantity':
+                this.setQuantity( newValue );
+                break;
+            default:
+                break;
+        }
+
     }
 
     setTitle( title ) {
@@ -133,12 +217,28 @@ class ItemCartTemplate extends HTMLElement {
     }
 
     setQuantity( quantity ) {
-       let element = this.shadowRoot.querySelector("#quantity");
-       element.setAttribute('quantity', quantity );
+       this.quantityElement.setAttribute('quantity', quantity );
     }
 
     setPrice( price) {
         this.shadowRoot.getElementById("price").textContent = `$${price}`;
+    }
+
+    updatePriceAndQuantity( item ) {
+        this.price = item.quantity * item.unit_price;
+        this.quantity = item.quantity;
+    }
+
+    setValuesByItem( item ) {
+
+        this.title = item.name;
+        this.imageUrl = item.image_url;
+        this.sequence = item.sequence;
+
+        this.updatePriceAndQuantity( item );
+
+        this.quantityElement.item = item;
+
     }
 
 }

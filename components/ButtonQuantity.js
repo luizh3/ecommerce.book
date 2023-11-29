@@ -29,14 +29,14 @@ buttonQuantityTemplate.innerHTML = `
         
     </style>
     <div class="content">
-        <button class="icon">
-            <i class="bi bi-plus-lg"></i>
-        </button>
-            <div style="font-weight: 700;" id="quantity">
-                3
-            </div>
-        <button class="icon">
+        <button class="icon" id="reduce-button">
             <i class="bi bi-dash"></i>
+        </button>
+        <div style="font-weight: 700;" id="quantity">
+            3
+        </div>
+        <button class="icon" id="increase-button">
+            <i class="bi bi-plus-lg"></i>
         </button>
     </div>
 `;
@@ -47,7 +47,8 @@ class ButtonQuantity extends HTMLElement {
 
         this.attachShadow( { mode:"open" } );
         this.shadowRoot.appendChild( buttonQuantityTemplate.content.cloneNode( true ) );
-    }
+
+  }
 
     static get observedAttributes() { 
         return ['quantity']; 
@@ -61,8 +62,40 @@ class ButtonQuantity extends HTMLElement {
         this.setAttribute( 'quantity', value );
     }
 
-    attributeChangedCallback( name, oldValue, newValue ) {
+    sendEventQuantityChanged( quantity ) {
+
+        this.item.quantity = quantity
+
+        var evento = EventItem.quantityChanged( this.item );
+
+        this.dispatchEvent( evento );
+    }
+
+    increaseQuantity() {
+       const nrQuantity = parseInt( this.quantity ) + 1;
+       this.quantity = nrQuantity;
+       this.sendEventQuantityChanged( nrQuantity );
+    }
+
+    reduceQuantity() {
+
+        if( this.quantity == 0 ){
+            return;
+        }
         
+        const nrQuantity = parseInt( this.quantity ) - 1;
+        this.quantity = nrQuantity;
+        this.sendEventQuantityChanged( nrQuantity );
+
+    }
+
+    connectedCallback() {
+        this.shadowRoot.getElementById( "increase-button" ).addEventListener( 'click', this.increaseQuantity.bind( this ) ); 
+        this.shadowRoot.getElementById( "reduce-button" ).addEventListener( 'click', this.reduceQuantity.bind( this ) ); 
+    }
+
+    attributeChangedCallback( name, oldValue, newValue ) {
+
         switch( name.toLowerCase() ){
             case 'quantity':
                 this.setQuantity( newValue )
@@ -75,10 +108,6 @@ class ButtonQuantity extends HTMLElement {
 
     setQuantity( quantity ) {
         this.shadowRoot.getElementById( "quantity" ).textContent = quantity;
-    }
-
-    setAlgumaCoisa() {
-        console.log( 'aaa' )
     }
 }
 

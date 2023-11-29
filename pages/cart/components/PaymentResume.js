@@ -60,7 +60,7 @@ paymentResumeTemplate.innerHTML = `
             <div>
                 Subtotal
             </div>
-            <div class="value">
+            <div class="value" id="subtotal">
                 $99.00
             </div>
         </div>
@@ -68,7 +68,7 @@ paymentResumeTemplate.innerHTML = `
             <div>
                 Frete
             </div>
-            <div class="value">
+            <div class="value" id="delivery-shipping">
                 $16.00
             </div>
         </div>
@@ -76,14 +76,14 @@ paymentResumeTemplate.innerHTML = `
             <div>
                 Desconto
             </div>
-            <div class="value">
+            <div class="value" id="discount">
                 $16.00
             </div>
         </div>
         <div class="divisor"></div>
         <div class="content-total">
             <div class="total-description">Total</div>
-            <div class="value-total">
+            <div class="value-total" id="total">
                 $119.00
             </div>
         </div>
@@ -91,7 +91,7 @@ paymentResumeTemplate.innerHTML = `
             <div>
                 À Vista
             </div>
-            <div>
+            <div id="cash-payment">
                 $119.00
             </div>
         </div>
@@ -105,14 +105,113 @@ class PaymentResume extends HTMLElement {
 
         this.attachShadow( { mode:"open" } );
         this.shadowRoot.appendChild( paymentResumeTemplate.content.cloneNode( true ) );
+
+        this.buttonPayment = this.shadowRoot.querySelector( "#button-payment" );
+    }
+
+    static get observedAttributes() { 
+        return [ 'delivery-shipping', 'subtotal', 'discount', 'cash-payment', 'total' ]; 
+    }
+
+    get total() {
+        this.getAttribute( 'total' ); 
+    }
+
+    set total( value ) {
+        this.setAttribute( 'total', value ); 
+    }
+
+    get cashPayment() {
+        this.getAttribute( "cash-payment" );
+    } 
+
+    set cashPayment( value ) {
+        this.setAttribute( "cash-payment", value );
+    }
+
+    get discount() {
+        this.getAttribute( "discount" );
+    } 
+
+    set discount( value ) {
+        this.setAttribute( "discount", value );
+    }
+
+    get subtotal() {
+        this.getAttribute( "subtotal" );
+    } 
+
+    set subtotal( value ) {
+        this.setAttribute( "subtotal", value );
+    }
+
+    get deliveryShipping() {
+        this.getAttribute( "delivery-shipping" );
+    } 
+
+    set deliveryShipping( value ) {
+        this.setAttribute( "delivery-shipping", value );
     }
 
     redirectPage( destity ) {
+
+        if( this.buttonPayment.disabled ){
+            return;
+        }
+
         window.location.href = destity;
     }
 
     connectedCallback() {
-        this.shadowRoot.querySelector( "#button-payment" ).addEventListener( 'click', this.redirectPage.bind( this, './payment.html' ) );
+        this.buttonPayment.addEventListener( 'click', this.redirectPage.bind( this, './payment.html' ) );
+    }
+
+    setDisabledButton( value ) {
+        console.log( value )
+        this.buttonPayment.disabled = value; 
+    }
+
+    attributeChangedCallback( name, oldValue, newValue ) {
+        
+        switch( name.toLowerCase() ){
+            case 'delivery-shipping':
+                this.setDeliveryShipping( newValue )
+                break;
+            case 'subtotal':
+                this.setSubtotal( newValue );
+                break;
+            case 'discount':
+                this.setDiscount( newValue );
+                break;
+            case 'cash-payment':
+                this.setCashPayment( newValue );
+                break;
+            case 'total':
+                this.setTotal( newValue );
+                break;
+            default:
+                break;
+        }
+    }
+
+    setDeliveryShipping( value ) {
+        this.shadowRoot.getElementById( 'delivery-shipping' ).textContent = `$${value}`;
+    }
+
+    setSubtotal( value ) {
+        this.shadowRoot.getElementById( 'subtotal' ).textContent = `$${value}`;
+    }
+
+    setDiscount( value ) {
+        this.shadowRoot.getElementById( 'discount' ).textContent = `$${value}`;
+    }
+
+    setCashPayment( value ) {
+        this.shadowRoot.getElementById( 'cash-payment' ).textContent = `$${value}`;
+    }
+
+    setTotal( value ) {
+        this.shadowRoot.getElementById( 'total').textContent = `$${value}`;
     }
 
 }

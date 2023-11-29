@@ -47,7 +47,7 @@ navbarPrimaryTemplate.innerHTML = `
             width: 550px;
         }
 
-        @media ( max-width: 858px ) {
+        @media ( max-width: 900px ) {
 
             .input-search {
                 width: 50%;
@@ -60,6 +60,7 @@ navbarPrimaryTemplate.innerHTML = `
             .content {
                 position: fixed;
                 z-index: var(--nav-bar-index-fixed);
+                top: 0;
             }
 
             .menu {
@@ -130,7 +131,7 @@ navbarPrimaryTemplate.innerHTML = `
             <a class="action-element" href="./cart.html">
                 <span class="bi bi-cart3" style="font-size: 20px;">
                 </span>
-                <label>Cart</label>
+                <label>Carrinho</label>
             </a>
         </ul>
         <i class="menu bi bi-list"></i>

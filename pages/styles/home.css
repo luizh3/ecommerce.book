@@ -13,3 +13,9 @@
     width: 5%;
     border: var( --border-default );
 }
+
+.content-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

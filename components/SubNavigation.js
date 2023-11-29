@@ -28,6 +28,12 @@ subNavigationTemplate.innerHTML = `
             color: var( --primary-color );
         }
 
+        @media ( max-width: 900px ) {
+            .content {
+                visibily: hidden;
+            }
+        }
+
     </style>
     <div class="content">
         <ul class="content-options">

@@ -2,18 +2,29 @@ const itemContainerTemplate = document.createElement('template');
 itemContainerTemplate.innerHTML = `
     <style>
         .content {
-            width: 100%;
+            width: 1080px;
             height: auto;
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             align-items:center;
             justify-content: center;
             gap: var( --gap-default );
-            margin-bottom:50px;
+            margin-bottom: 50px;
         }
-        
-        @media ( max-width: 858px ) {
+
+        @media ( max-width: 1175px ) {
             .content {
                 flex-direction: column;
+                width: 525px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media ( max-width: 900px ) {
+            .content {
+                width: 250px;
+                flex-direction: column;
+                grid-template-columns: repeat(1, 1fr);
             }
         }
 

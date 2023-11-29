@@ -10,7 +10,7 @@ FooterPrimaryTemplate.innerHTML = `
             display: flex;
             align-items:center;
             justify-content: center;
-            color: #FFFFFF
+            color: #FFFFFF;
         }
         
         .content-bottom {
@@ -21,13 +21,14 @@ FooterPrimaryTemplate.innerHTML = `
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            color: #FFFFFF
+            color: #FFFFFF;
         }
 
         .content-links {
             width: 60%;
             display: flex;
             justify-content: space-between;
+            min-width: 600px;
         }
 
         ul {
@@ -58,9 +59,11 @@ FooterPrimaryTemplate.innerHTML = `
             gap: 10px;
         }
 
-        @media ( max-width: 858px ) {
+        @media ( max-width: 900px ) {
             .content-links {
                 flex-direction: column;
+                width: 250px;
+                min-width: 250px;
             }
         }
 

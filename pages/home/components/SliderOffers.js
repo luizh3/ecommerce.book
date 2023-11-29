@@ -8,7 +8,7 @@ sliderOffersTemplate.innerHTML = `
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./resources/image/1315629.png');
+            background-image: linear-gradient(to left, rgba(192, 192, 192, 0.5), rgba(0, 0, 0, 0.5)), url('./resources/image/1315629.png');
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -39,7 +39,7 @@ sliderOffersTemplate.innerHTML = `
         }
 
         
-        @media ( max-width: 858px ) {
+        @media ( max-width: 900px ) {
 
             .content-center {
                 justify-content: center;

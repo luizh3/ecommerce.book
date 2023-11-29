@@ -17,6 +17,7 @@ itemCartTemplate.innerHTML = `
             position: relative;
             text-decoration: none;
             color: inherit;
+            overflow: hidden;
         }
 
         .img-card {
@@ -75,8 +76,8 @@ itemCartTemplate.innerHTML = `
         .content .card-actions {
             position: absolute;
             bottom: 20px;
-            left: 40px;
-            transform: translateY(40px);
+            left: 35px;
+            transform: translateY(100px);
             visibility: hidden;
             transition: 0.20s ease;
             display: flex;
@@ -117,7 +118,7 @@ itemCartTemplate.innerHTML = `
             border-left: var( --border-default );
             background-color: var( --blue-strong-color );
             color: #FFFFFF;
-            font-size: var( --font-size-15 );
+            font-size: 15px;
         }
         
     </style>

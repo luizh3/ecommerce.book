@@ -102,11 +102,17 @@
     font-size: var( --font-size-bold );
     display: flex;
     gap: 10px;
+    white-space: nowrap;
 }
 
 .value-informations-product{
     font-size: var( --font-size-15 );
     font-weight: normal;
+    white-space: nowrap; 
+}
+
+.value-information-description{
+    font-size: var( --font-size-15 );
 }
 
 .value-align-product{
@@ -116,7 +122,7 @@
 }
 
 .value-price-product {
-    font-size: var( --gap-default );
+    font-size: var( --font-size-title );
     color:#00d700;
 }
 
@@ -272,12 +278,16 @@
 }
 
 
-@media screen and ( max-width: 1000px ) {
+@media screen and ( max-width: 1175px ) {
     .container-center {
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 20px;
+    }
+
+    .calculate-shipping {
+        margin-top: var( --gap-default );
     }
 
     .container-left {
@@ -304,9 +314,17 @@
     }
 }
 
-@media ( max-width: 852px ){
+@media ( max-width: 900px ){
     .path-product{
         margin-top: 30px;
+    }
+
+    .path-product > div {
+        margin: 0;
+    }
+
+    .calculate-shipping > span {
+        font-size: var( --font-size-15 );
     }
 
     .button-icon{

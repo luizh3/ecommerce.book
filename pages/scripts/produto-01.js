@@ -1,4 +1,4 @@
 
 function onChangeImage( urlNewImage ) {
-    document.querySelector( '#img-item' ).src = urlNewImage;
+    document.querySelector( '#image-item' ).src = urlNewImage;
 }

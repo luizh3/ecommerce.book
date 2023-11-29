@@ -21,6 +21,10 @@ buttonPrimaryTemplate.innerHTML = `
             box-shadow: var( --box-shadow-default );
         }
 
+        .content.disabled, .content.disabled:hover {
+            background-color: var( --gray-color );
+        }
+
         .content:hover {
             background-color: var(--blue-hover-color);
         }
@@ -40,6 +44,18 @@ class ButtonPrimary extends HTMLElement {
 
         this.attachShadow( { mode:"open" } );
         this.shadowRoot.appendChild( buttonPrimaryTemplate.content.cloneNode( true ) );
+    }
+
+    static get observedAttributes() { 
+        return ['disabled' ]; 
+    }
+
+    set disabled( value ){
+        return this.setAttribute( 'disabled', value );
+    }
+
+    get disabled(){
+        return this.getAttribute( 'disabled' );
     }
 
     setIcon( icon ){
@@ -62,10 +78,11 @@ class ButtonPrimary extends HTMLElement {
             default:
                 break;
         }
-
     }
 
     connectedCallback() {
+
+        this.button = this.shadowRoot.querySelector("button");
 
         this.shadowRoot.querySelector(".content").textContent = this.attributes.text.value;
 
@@ -80,6 +97,22 @@ class ButtonPrimary extends HTMLElement {
         } 
     }
 
+    onDisabledChanged( value ) {
+        this.button.classList.toggle('disabled');
+    }
+
+    attributeChangedCallback( name, newValue, oldValue ){
+
+            console.log( name );
+
+            switch( name.toLowerCase() ) {
+                case 'disabled':
+                    this.onDisabledChanged( newValue );
+                    break;
+                default:
+                    break;
+            }
+    }
 }
 
 window.customElements.define( 'button-primary', ButtonPrimary )
