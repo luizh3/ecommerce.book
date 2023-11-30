@@ -70,57 +70,14 @@ itemCartTemplate.innerHTML = `
 
         .content:hover .card-actions {
             visibility: visible;
-            transform: translateY(0);
+            transform: translateY(-85px);
         }
 
-        .content .card-actions {
+        .card-actions {
             position: absolute;
-            bottom: 20px;
-            left: 35px;
-            transform: translateY(100px);
-            visibility: hidden;
             transition: 0.20s ease;
-            display: flex;
-            height: 45px;
         }
 
-        .card-action-button {
-            width: 40px;
-            border: none;
-            background-color: var( --blue-strong-color );
-            color: #FFFFFF;
-            font-size: var( --font-size-15 );
-        }
-
-        .card-action-button:first-child { 
-            border-radius: var( --radius-default ) 0 0 var( --radius-default ); 
-        }
-
-        .card-action-button:last-child { 
-            border-radius: 0 var( --radius-default ) var( --radius-default ) 0; 
-        }
-
-        .card-action-button i, .card-action-button-text i {
-            font-size: 18px;
-        }
-
-        .card-action-button:hover, .card-action-button-text:hover  {
-            background-color: var( --blue-hover-color );
-        }
-
-        .card-action-button-text {
-            display: flex;
-            gap: 5px;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            border-right: var( --border-default );
-            border-left: var( --border-default );
-            background-color: var( --blue-strong-color );
-            color: #FFFFFF;
-            font-size: 15px;
-        }
-        
     </style>
     <a class="content" href="./produto-01.html">
        <div class="labels" id="labels"></div>
@@ -144,18 +101,7 @@ itemCartTemplate.innerHTML = `
                 $40.00
             </div>
         </div>
-        <div class="card-actions">
-            <button class="card-action-button">
-                <i class="bi bi-eye"></i>
-            </button>
-            <button class="card-action-button-text">
-                <i class="bi bi-cart3"></i>
-                <p>Adicionar</p>
-            </button>
-            <button class="card-action-button">
-                <i class="bi bi-heart"></i>
-            </button>
-        </div>
+        <item-card-actions class="card-actions"></item-card-actions>
     </a>
 `;
 
@@ -165,6 +111,13 @@ class ItemCard extends HTMLElement {
 
         this.attachShadow( { mode:"open" } );
         this.shadowRoot.appendChild( itemCartTemplate.content.cloneNode( true ) );
+
+        this.limits = {
+            size : {
+                description: 50,
+                title: 20,
+            }
+        }
 
     }
 
@@ -262,28 +215,44 @@ class ItemCard extends HTMLElement {
     }
 
     setTitleElement( title ){
-        this.shadowRoot.getElementById('title').textContent = title;
+        const dsFormatedText = title.length > this.limits.size.title ? title.substring( 0, this.limits.size.title ) + "..." : title;
+        this.shadowRoot.getElementById('title').textContent = dsFormatedText;
     }
 
     setDescriptionElement( description ) {
-        this.shadowRoot.getElementById('description').textContent = description;
+        const dsFormatedText = description.length > this.limits.size.description ? description.substring( 0, this.limits.size.description ) + "..." : description;
+        this.shadowRoot.getElementById('description').textContent = dsFormatedText;
     }
 
     setPriceElement( price ){
-        this.shadowRoot.getElementById('price').textContent = `R$ ${price}`;
+        let floatValue = parseFloat( price );
+        this.shadowRoot.getElementById('price').textContent = `R$ ${floatValue.toFixed(2)}`;
     }
 
     setReviewsNumberElement( reviewsNumber ){
         this.shadowRoot.getElementById('reviews-number').textContent = `(${reviewsNumber})`;
     }
 
-    setLabelsElement( typesJson ){
+    setValuesByItem( item ) {
 
-        const json = JSON.parse(typesJson)
+        console.log( item.reviews.length )
+
+        this.imageURL = item.images_url[0];
+        this.title = item.name;
+        this.description = item.description;
+        this.price = item.unit_price;
+        this.reviewsNumber = item.reviews.length;
+        this.score = item.score;
+        this.labels = JSON.stringify( [...item.labels] );
+    }
+
+    setLabelsElement( jsonObject ){
+
+        const labels = JSON.parse( jsonObject );
 
         let labelsContainer = this.shadowRoot.getElementById('labels');
 
-        json.types.forEach( ( label ) => {
+        labels.forEach( ( label ) => {
 
             let name;
 
