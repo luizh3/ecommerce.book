@@ -8,7 +8,6 @@ itemCartTemplate.innerHTML = `
             display: flex;
             border-radius: var( --radius-default );
             background-color: var( --gray-weak-color );
-            min-width: 425px;
             padding: 5px;
         }
 
@@ -68,8 +67,10 @@ itemCartTemplate.innerHTML = `
         }
 
         @media ( max-width: 900px ) {
+
             .content {
-                max-width: 425px;
+                background-color: #FFFFFF;
+                border-bottom: 2px solid var( --gray-weak-color );
             }
 
             .image {

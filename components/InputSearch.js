@@ -8,11 +8,12 @@ inputSearchTemplate.innerHTML = `
             display: flex;
             border: var( --border-default );
             border-radius: var( --radius-default );
+            min-width: 100px;
         }
 
         input {
             border: none;
-            width: 500px;
+            width: 90%;
             height: 35px;
             margin-left: 10px;
         }

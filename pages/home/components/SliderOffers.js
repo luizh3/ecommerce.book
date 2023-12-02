@@ -52,7 +52,8 @@ sliderOffersTemplate.innerHTML = `
 
             .description {
                 font-size: 15px;
-                width: 400px;
+                width: 70%;
+                min-width: 300px;
             }
         }
 
