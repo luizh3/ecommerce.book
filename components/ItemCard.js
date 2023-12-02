@@ -261,11 +261,12 @@ class ItemCard extends HTMLElement {
     }
 
     setValuesByItem( item ) {
+
         this.iditem = item.id;
         this.imageURL = item.images_url[0];
         this.title = item.name;
         this.description = item.description;
-        this.price = item.unit_price;
+        this.price = item.unit_price - item.discount;
         this.reviewsNumber = item.reviews.length;
         this.score = item.score;
         this.labels = JSON.stringify( [...item.labels] );

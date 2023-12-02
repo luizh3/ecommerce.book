@@ -61,7 +61,7 @@ function getTotalDiscount( items ) {
     }
 
     return items.reduce( ( acumulador, item ) => {
-        return acumulador + ( item.quantity > 0 ? item.discount : 0.00 );
+        return acumulador + ( item.quantity > 0 ? item.discount * item.quantity: 0.00 );
     } , 0 );
 
 }

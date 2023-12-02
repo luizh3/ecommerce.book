@@ -315,6 +315,12 @@
 }
 
 @media ( max-width: 900px ){
+
+    .container-center {
+        width: 90%;
+        max-width: 500px;
+    }
+
     .path-product{
         margin-top: 30px;
     }
