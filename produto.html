@@ -21,6 +21,8 @@
     <script src='./components/Navbar.js'></script>
     <script src='./components/SubNavigation.js'></script>
     <script src='./components/FooterPrimary.js'></script>
+    <script src="./components/ScoreStars.js"></script>
+    <script src="./components/ButtonQuantity.js"></script>
 
     <!-- Imports Utils -->
     <script src="./builder/event/EventItem.js"></script>
@@ -46,10 +48,9 @@
     <div class="path-product display-flex-center">
         <div>
             <div class="path-product-directory">
-                Home / Mangá / 
+                Home / 
             </div>
-            <div class="path-product-name">
-                Ataque dos Titãs Vol. 34
+            <div class="path-product-name" id="path-product-name">   
             </div>
         </div>
     </div>
@@ -81,14 +82,7 @@
                 <div class="name-product" id="name-product">
                     Ataque dos Titãs Vol. 34    
                 </div>
-                <div class="score-product">
-                    <div class="stars-product">
-                        <i class="bi bi-star-fill" style="color: #f5be19;"></i>
-                        <i class="bi bi-star-fill" style="color: #f5be19;"></i>
-                        <i class="bi bi-star-fill" style="color: #f5be19;"></i>
-                        <i class="bi bi-star-fill" style="color: #f5be19;"></i>
-                        <i class="bi bi-star-fill" style="color: #f5be19;"></i>
-                    </div>
+                <div class="score-product" id="score-product" >
                     <div class="reviews-product">
                         avaliações (3) 
                     </div>
@@ -133,16 +127,8 @@
                 </div>
                 <div class="row-separator"></div>
                 <div class="buttons-actions-container">
-                    <div class="button-quantity-product">
-                        <button class="button-icon">
-                            <i class="bi bi-plus-lg"></i>
-                        </button>
-                        <div class="font-bold">3</div>
-                        <button class="button-icon">
-                            <i class="bi bi-dash"></i>
-                        </button>
-                    </div>
-                    <button class="button-cart display-flex-center">
+                    <button-quantity class="button-quantity" id="quantity"></button-quantity>
+                    <button class="button-cart display-flex-center" id="add-button">
                         <i class="bi bi-cart3"></i>
                         <div>Adicionar</div>
                     </button>

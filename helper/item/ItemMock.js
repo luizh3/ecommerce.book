@@ -28,15 +28,46 @@ class ItemMock {
                     favorite: false,
                     best_seller : true,
                     score: 5,
+                    quantity: 0,
+                    sequence: 0,
+                    delivery_shipping: 12.00,
                     reviews: [
                         {
-                            title: "Os Barões da Pisadinha - Cabeça Voando",
-                            name: "Omar ta pra onda",
-                            description: "Muito bom em, legal...",
-                            date: "17/02/1990",
-                            score: 5,
+                            "title": "Poderia ter sido melhor",
+                            "name": "ZekeLover",
+                            "description": "O arco final foi uma decepção. As motivações dos personagens não foram totalmente exploradas, deixando muitos pontos soltos. Não atendeu às expectativas.",
+                            "date": "26/11/2022",
+                            "score": 3
                         },
-                    ]
+                        {
+                            "title": "Bom, mas não perfeito",
+                            "name": "CriticoConstrutivo",
+                            "description": "O final foi bom, mas alguns arcos poderiam ter recebido mais atenção. Algumas decisões de personagens foram questionáveis. Ainda assim, uma conclusão sólida.",
+                            "date": "29/11/2022",
+                            "score": 4
+                        },
+                        {
+                          "title": "Attack on Titan - Volume Final Thoughts",
+                          "name": "Eren4Ever",
+                          "description": "Eren Yeager, meu herói! Este volume final foi a conclusão perfeita para uma série incrível. As reviravoltas, a filosofia e as lutas épicas - tudo foi fenomenal.",
+                          "date": "22/11/2022",
+                          "score": 5
+                        },
+                        {
+                          "title": "Attack on Titan - Volume 34 Review",
+                          "name": "ArminTheStrategist",
+                          "description": "A inteligência de Armin realmente brilhou neste volume. As estratégias elaboradas e as revelações impactantes fizeram deste um final memorável.",
+                          "date": "23/11/2022",
+                          "score": 5
+                        },
+                        {
+                          "title": "Fim de uma Era",
+                          "name": "CriticalReviewer",
+                          "description": "Infelizmente, o final de Attack on Titan não atendeu às minhas expectativas. Algumas escolhas de personagens foram questionáveis, e certas tramas mereciam mais desenvolvimento.",
+                          "date": "24/11/2022",
+                          "score": 2
+                        }
+                      ]
                 },
                 {
                     id: 2,
@@ -57,15 +88,25 @@ class ItemMock {
                     favorite: false,
                     best_seller : true,
                     score: 4,
+                    quantity: 0,
+                    sequence: 0,
+                    delivery_shipping: 5.00,
                     reviews: [
                         {
-                            title: "",
-                            name: "",
-                            description: "",
-                            date: "",
-                            score: 0,
+                          "title": "O Estrangeiro - Uma Jornada Filosófica",
+                          "name": "FilosofoLiterario",
+                          "description": "Uma narrativa intensa que explora a alienação e a falta de sentido na vida. A escrita de Albert Camus é penetrante, e Meursault é um protagonista intrigante. O final deixa espaço para reflexão profunda.",
+                          "date": "15/02/2023",
+                          "score": 5
                         },
-                    ]
+                        {
+                          "title": "O Estrangeiro - Desafiador e Controverso",
+                          "name": "LeitorQuestionador",
+                          "description": "A abordagem existencialista de Camus neste romance é desafiadora. Meursault é um protagonista peculiar, e a falta de emoção dele é desconcertante. A história levanta questões profundas sobre a sociedade e a natureza humana.",
+                          "date": "16/02/2023",
+                          "score": 4
+                        }
+                      ]
                 },
                 {
                     id: 3,
@@ -86,15 +127,25 @@ class ItemMock {
                     favorite: false,
                     best_seller : true,
                     score: 5,
+                    quantity: 0,
+                    sequence: 0,
+                    delivery_shipping: 0.00,
                     reviews: [
                         {
-                            title: "",
-                            name: "",
-                            description: "",
-                            date: "",
-                            score: 0,
+                          "title": "O Mito de Sísifo - Reflexões Existenciais",
+                          "name": "ReflexivoPorNatureza",
+                          "description": "Uma obra filosófica profunda que explora a questão fundamental da existência humana. Camus aborda o absurdo da vida de maneira envolvente, desafiando o leitor a confrontar o significado em um mundo aparentemente sem propósito.",
+                          "date": "15/03/2023",
+                          "score": 5
                         },
-                    ]
+                        {
+                          "title": "O Mito de Sísifo - Desvendando o Absurdo",
+                          "name": "CuriosoSobreoAbsurdo",
+                          "description": "Camus oferece uma visão perspicaz sobre a condição humana, destacando o absurdo inerente à existência. A análise do mito de Sísifo proporciona uma experiência de leitura desafiadora, convidando o leitor a refletir sobre a busca por sentido na vida.",
+                          "date": "16/03/2023",
+                          "score": 4
+                        }
+                      ]
                 },
                 {
                     id: 4,
@@ -115,15 +166,25 @@ class ItemMock {
                     favorite: false,
                     best_seller : true,
                     score: 3,
+                    quantity: 0,
+                    sequence: 0,
+                    delivery_shipping: 23.00,
                     reviews: [
                         {
-                            title: "",
-                            name: "",
-                            description: "",
-                            date: "",
-                            score: 0,
+                          "title": "O Pequeno Príncipe - Uma Jornada Encantadora",
+                          "name": "SonhadorEstelar",
+                          "description": "Uma obra atemporal que cativa leitores de todas as idades. A história delicada do Pequeno Príncipe e suas aventuras pelos planetas é repleta de sabedoria e poesia. Uma leitura encantadora que ressoa com a criança interior de cada um.",
+                          "date": "10/04/2023",
+                          "score": 5
                         },
-                    ]
+                        {
+                          "title": "O Pequeno Príncipe - Lições Profundas em Simplicidade",
+                          "name": "ApreciadorDeAlmas",
+                          "description": "A simplicidade desta narrativa esconde lições profundas sobre amor, amizade e a busca por significado na vida. As ilustrações encantadoras complementam a jornada do Pequeno Príncipe, tornando este livro uma experiência verdadeiramente especial.",
+                          "date": "11/04/2023",
+                          "score": 5
+                        }
+                      ]
                 },
                 {
                     id: 5,
@@ -144,6 +205,9 @@ class ItemMock {
                     favorite: false,
                     best_seller : false,
                     score: 5,
+                    quantity: 0,
+                    sequence: 0,
+                    delivery_shipping: 0.00,
                     reviews: [
                         {
                             title: "",
@@ -173,6 +237,9 @@ class ItemMock {
                     favorite: false,
                     best_seller : false,
                     score: 0,
+                    quantity: 0,
+                    sequence: 0,
+                    delivery_shipping: 0.00,
                     reviews: [
                         {
                             title: "",
@@ -202,6 +269,9 @@ class ItemMock {
                     favorite: false,
                     best_seller : false,
                     score: 4,
+                    quantity: 0,
+                    sequence: 0,
+                    delivery_shipping: 9.00,
                     reviews: [
                         {
                             title: "",
@@ -231,6 +301,9 @@ class ItemMock {
                     favorite: false,
                     best_seller : false,
                     score: 5,
+                    quantity: 0,
+                    sequence: 0,
+                    delivery_shipping: 0.00,
                     reviews: [
                         {
                             title: "",

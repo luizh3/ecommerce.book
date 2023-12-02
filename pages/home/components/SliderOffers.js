@@ -87,7 +87,7 @@ class SliderOffers extends HTMLElement {
     }
 
     connectedCallback() {
-        this.shadowRoot.querySelector( "#button" ).addEventListener( 'click', this.redirectPage.bind( this, './produto.html' ) );
+        this.shadowRoot.querySelector( "#button" ).addEventListener( 'click', this.redirectPage.bind( this, './produto.html?id=1' ) );
     }
 
 }

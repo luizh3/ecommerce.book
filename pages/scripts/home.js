@@ -2,7 +2,9 @@ window.onload = function() {
 
     let items = [];
 
-    localStorage.setItem( "items", JSON.stringify(items) )
+    if( !localStorage.getItem("items") ){
+        localStorage.setItem( "items", JSON.stringify(items) )
+    }
 
     const allItems = ItemMock.getAllItems();
 

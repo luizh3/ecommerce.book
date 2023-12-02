@@ -63,11 +63,6 @@ itemCartTemplate.innerHTML = `
             object-fit: contain;
         }
 
-        .score{
-            display:flex;
-            gap: 5px;
-        }
-
         .content:hover .card-actions {
             visibility: visible;
             transform: translateY(-85px);
@@ -76,6 +71,11 @@ itemCartTemplate.innerHTML = `
         .card-actions {
             position: absolute;
             transition: 0.20s ease;
+        }
+
+        .score{
+            display:flex;
+            gap: 5px;
         }
 
     </style>
@@ -94,7 +94,7 @@ itemCartTemplate.innerHTML = `
                 Acompanha o protagonista que so...
             </div>
             <div class="score">
-                <div id="stars-score"></div>
+                <score-stars id="score"></score-stars>
                 <span class="reviews-number" id="reviews-number">(9)</span>
             </div>
             <div class="price" id="price">
@@ -228,6 +228,11 @@ class ItemCard extends HTMLElement {
         }
     }
 
+    setScoreElement( value ){
+        let element = this.shadowRoot.getElementById( "score" );
+        element.setAttribute( 'value', value )
+    }
+
     setSrcImageElement( url ){
         this.shadowRoot.getElementById('img-card').src = url;
     }
@@ -301,33 +306,6 @@ class ItemCard extends HTMLElement {
             labelsContainer.appendChild( labelComponent );
 
         } )
-    }
-
-    setScoreElement( score ) {
-
-        const nrScore = parseInt( score );
-
-        let nrMaxScore = 5;
-
-        let starsScoreContainer = this.shadowRoot.getElementById('stars-score');
-
-        let nrStarsNegative = nrScore === 0 ? 5 : nrMaxScore - nrScore;
-
-        console.log( nrStarsNegative )
-
-        for( let i = 0; i < nrScore; i++ ){
-            let filledStar = document.createElement('i');
-            filledStar.className = 'bi bi-star-fill';
-            filledStar.style.color = 'var( --yellow-color )';
-            starsScoreContainer.appendChild( filledStar )
-        }
-
-        for( let i = 0; i < nrStarsNegative; i++ ){
-            let emptyStar = document.createElement('i');
-            emptyStar.className = 'bi bi-star-fill';
-            emptyStar.style.color = '#d3d3d3';
-            starsScoreContainer.appendChild( emptyStar )
-        }
     }
 }
 

@@ -68,21 +68,13 @@ function getTotalDiscount( items ) {
 
 function getDeliveryShipping( items ) {
 
-    return 0.00;
+    if( !items ){
+        return 0.00;
+    }
 
-    // if( !objectItems ){
-    //     return 0.00;
-    // }
-
-    // const itemFounded = objectItems.items.find( ( item ) => {
-    //     return item.quantity > 0;
-    // });
-
-    // if( !itemFounded ) {
-    //     return 0.00;
-    // }
-
-    // return objectItems.value_delivery_shipping;
+    return items.reduce( ( acumulador, item ) => {
+        return acumulador + ( item.quantity > 0 ? item.delivery_shipping : 0.00 );
+    } , 0 );
 
 }
 

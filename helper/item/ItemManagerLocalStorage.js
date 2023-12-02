@@ -47,7 +47,10 @@ class ItemManagerLocalStorage {
 
     static addItem( item ) {
 
-        item.quantity = 1;
+        if( !item.quantity ){
+            item.quantity = 1;
+        }
+        
         item.sequence = this.getSequence();
 
         console.log( item );

@@ -93,7 +93,7 @@ itemCartTemplate.innerHTML = `
             <div class="text-values">
                 Quantidade
             </div>
-            <button-quantity class="button-quantity" id="quantity" quantity="3"></button-quantity>
+            <button-quantity class="button-quantity" id="quantity"></button-quantity>
             <div class="product-remove" id="remove-button">
                 REMOVER
             </div>

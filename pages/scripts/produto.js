@@ -11,20 +11,49 @@ window.onload = function() {
     }
 
 
-    const item = ItemMock.findById( idProduct );
+    this.item = ItemMock.findById( idProduct );
     
-    setPrice( item.unit_price - item.discount );
-    setNormalPrice( item.unit_price );
-    setAuthor( item.author );
-    setPublishingCompany( item.publishing_company );
-    setLanguage( item.language );
-    setDatePublication( item.publication_date );
-    setNumberPages( `${item.page_number} páginas` );
-    setDescription( item.description );
-    setImage( item.images_url[0] );
-    setImages( item.images_url );
-    setNameProduct( item.name );
+    setPrice( this.item.unit_price - item.discount );
+    setNormalPrice( this.item.unit_price );
+    setAuthor( this.item.author );
+    setPublishingCompany( this.item.publishing_company );
+    setLanguage( this.item.language );
+    setDatePublication( this.item.publication_date );
+    setNumberPages( `${this.item.page_number} páginas` );
+    setDescription( this.item.description );
+    setImage( this.item.images_url[0] );
+    setImages( this.item.images_url );
+    setNameProduct( this.item.name );
+    setScore( this.item.score );
+    setPathProductName( this.item.name );
 
+    document.getElementById( "add-button" ).addEventListener( "click", () => {
+        let itemAdd = ItemMock.findById( this.item.id );
+        itemAdd.quantity = getQuantity();
+        ItemManagerLocalStorage.addItem( itemAdd );
+    } )
+
+    document.getElementById("quantity").quantity = 1;
+    document.getElementById("quantity").item = item;
+
+}
+
+function setPathProductName( dsName ) {
+    document.getElementById("path-product-name").textContent = dsName;
+}
+
+function setScore( value ) {
+
+    console.log( value );
+
+    let content = document.getElementById( 'score-product' );
+
+    let scoreStarsElement = document.createElement( 'score-stars' );
+
+
+    scoreStarsElement.value = value;
+
+    content.insertBefore( scoreStarsElement, content.firstChild );
 }
 
 function setImages( urls ) {
@@ -38,7 +67,6 @@ function setImages( urls ) {
         let element = document.createElement( "button-image" );
 
         element.addEventListener( 'image-changed', function( event ) {
-            console.log( '123' )
             setImage( event.detail.url )
         } )
 
@@ -47,6 +75,9 @@ function setImages( urls ) {
 
     })
 
+}
+function getQuantity() {
+    return document.getElementById("quantity").getAttribute("quantity");
 }
 
 function setNameProduct( dsName ) {
