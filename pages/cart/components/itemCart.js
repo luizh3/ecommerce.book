@@ -12,7 +12,7 @@ itemCartTemplate.innerHTML = `
             padding: 5px;
         }
 
-        .content-price, .content-quantity {
+        .content-product-description, .content-price, .content-quantity {
             flex: 1;
             height: 150px;
         }
@@ -28,6 +28,7 @@ itemCartTemplate.innerHTML = `
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 5px;
         }
 
         .image {
@@ -70,12 +71,21 @@ itemCartTemplate.innerHTML = `
             .content {
                 max-width: 425px;
             }
+
+            .image {
+                width: 60px;
+            }
+
             .content-product-description {
                 flex-direction: column;
             }
             .text-values {
-                font-size: 16px;
+                font-size: 14px;
                 max-width: 100px;
+            }
+
+            .price {
+                font-size: 20px;
             }
         }
 
