@@ -1,58 +1,12 @@
-var objectItems = {
-    value_delivery_shipping: 16.00,
-    items: [
-        {
-            id: 1,
-            name: "Ataque dos Titãs Vol. 34",
-            image_url: "./resources/image/attack-on-titan.png",
-            unit_price: 20.00,
-            discount: 10.00,
-            quantity: 3,
-            sequence: 1,
-        },
-        {
-            id: 2,
-            name: "O estrangeiro",
-            image_url: "./resources/image/camus-o-estrangeiro.png",
-            unit_price: 30.00,
-            discount: 10.00,
-            quantity: 2,
-            sequence: 2,
-        },
-        {
-            id: 3,
-            name: "O Mito de Sísifo",
-            image_url: "./resources/image/mito-de-sisifo.png",
-            unit_price: 50.00,
-            discount: 10.00,
-            quantity: 3,
-            sequence: 3,
-        }
-    ]
-}
-
 function removeItem( event ) {
 
-    let items = this.objectItems.items;
-    let sequence = event.detail.sequence;
+    ItemManagerLocalStorage.removeItem( event.detail.sequence );
 
-    console.log( sequence );
+    let items = ItemManagerLocalStorage.getItems();
 
-    const itemFounded = items.find( ( item ) => {
-        return item.sequence == sequence;
-    });
+    this.updateResumeOperation( items );
 
-    const indexRemove = items.indexOf( itemFounded );
-
-    if( indexRemove === -1 ){
-        return;
-    }
-
-    items.splice( indexRemove, 1 );
-
-    this.updateResumeOperation();
-
-    if( this.objectItems.items.length == 0 ) {
+    if( items.length == 0 ) {
         this.onCartEmpty();
     }
 
@@ -66,15 +20,19 @@ function onCartEmpty() {
     paymentResumeElement.setDisabledButton( true );
 }
 
-function addItems() {
+function addItems( items ) {
 
     let containerItems = document.querySelector( ".content-items" );
 
-    objectItems.items.forEach( function( item ) {
+    items.forEach( function( item ) {
 
         let element = document.createElement('item-cart');
 
-        element.addEventListener( EventItem.nameQuantityChanged(), this.updateResumeOperation.bind( this ) ); 
+        element.addEventListener( EventItem.nameQuantityChanged(), ( event ) => {
+            ItemManagerLocalStorage.updateQuantityItem( event.detail.item );
+            this.updateResumeOperation( ItemManagerLocalStorage.getItems() )
+        } ); 
+
         element.addEventListener( EventItem.nameRemoveItem(), this.removeItem.bind( this ) ); 
 
         element.setValuesByItem( item );
@@ -84,73 +42,78 @@ function addItems() {
 
 }
 
-function getSubtotal() {
+function getSubtotal( items ) {
 
-    if( !objectItems || !objectItems.items ){
+    if( !items ){
         return 0.00;
     }
 
-    return objectItems.items.reduce( ( acumulador, item ) => {
+    return items.reduce( ( acumulador, item ) => {
         return acumulador + ( item.quantity * item.unit_price )
     } , 0 );
 
 }
 
-function getTotalDiscount() {
+function getTotalDiscount( items ) {
 
-    if( !objectItems || !objectItems.items ){
+    if( !items ){
         return 0.00;
     }
 
-    return objectItems.items.reduce( ( acumulador, item ) => {
+    return items.reduce( ( acumulador, item ) => {
         return acumulador + ( item.quantity > 0 ? item.discount : 0.00 );
     } , 0 );
 
 }
 
-function getDeliveryShipping() {
+function getDeliveryShipping( items ) {
 
-    if( !objectItems ){
-        return 0.00;
-    }
+    return 0.00;
 
-    const itemFounded = objectItems.items.find( ( item ) => {
-        return item.quantity > 0;
-    });
+    // if( !objectItems ){
+    //     return 0.00;
+    // }
 
-    if( !itemFounded ) {
-        return 0.00;
-    }
+    // const itemFounded = objectItems.items.find( ( item ) => {
+    //     return item.quantity > 0;
+    // });
 
-    return objectItems.value_delivery_shipping;
+    // if( !itemFounded ) {
+    //     return 0.00;
+    // }
+
+    // return objectItems.value_delivery_shipping;
 
 }
 
-function getTotal() {
-    return ( this.getSubtotal() - this.getTotalDiscount()  ) + this.getDeliveryShipping();
+function getTotal( items ) {
+    return ( this.getSubtotal( items ) - this.getTotalDiscount( items )  ) + this.getDeliveryShipping( items );
 }
 
-function updateResumeOperation() {
+function updateResumeOperation( items ) {
 
     let paymentResumeComponent = document.querySelector( 'payment-resume' );
 
-    const vlTotal = this.getTotal();
+    const vlTotal = this.getTotal( items );
 
-    paymentResumeComponent.deliveryShipping = this.getDeliveryShipping();
+    paymentResumeComponent.deliveryShipping = this.getDeliveryShipping( items );
     paymentResumeComponent.cashPayment = vlTotal;
-    paymentResumeComponent.discount = this.getTotalDiscount();
-    paymentResumeComponent.subtotal = this.getSubtotal();
+    paymentResumeComponent.discount = this.getTotalDiscount( items );
+    paymentResumeComponent.subtotal = this.getSubtotal( items );
     paymentResumeComponent.total = vlTotal;
 
 }
 
-function onQuantityChanged() {
-    this.updateResumeOperation();
-}
-
 window.onload = function() {
 
-    this.addItems();
-    this.updateResumeOperation();
+    let items = ItemManagerLocalStorage.getItems();
+
+    if( items.length == 0 ) {
+        this.onCartEmpty();
+        return;
+    }
+
+    this.addItems( items );
+    this.updateResumeOperation( items );
 
 }

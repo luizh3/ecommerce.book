@@ -9,10 +9,11 @@
 
     <!-- Imports css -->
     <link rel='stylesheet' type='text/css' media='screen' href='./global.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='./pages/styles/produto-01.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./pages/styles/produto.css'>
 
     <!-- Imports Specialized -->
-    <script src='./pages/scripts/produto-01.js'></script>
+    <script src='./pages/scripts/produto.js'></script>
+    <script src='./pages//product/components/ButtonImage.js'></script>
 
     <!-- Imports Generic -->
     <script src='./components/LabelInformation.js'></script>
@@ -20,6 +21,11 @@
     <script src='./components/Navbar.js'></script>
     <script src='./components/SubNavigation.js'></script>
     <script src='./components/FooterPrimary.js'></script>
+
+    <!-- Imports Utils -->
+    <script src="./builder/event/EventItem.js"></script>
+    <script src="./helper/item/ItemManagerLocalStorage.js"></script>
+    <script src="./helper/item/ItemMock.js"></script>
 
     <!-- Imports Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,12 +58,6 @@
             <div class="container-left">
                 <div class="image-product-container display-flex-center">
                     <div class="select-image-product">
-                        <button class="button-image" onclick='onChangeImage( this.querySelector("img").src )'>
-                            <img src="./resources/image/attack-on-titan.png">
-                        </button>
-                        <button class="button-image" onclick='onChangeImage( this.querySelector("img").src )'>
-                            <img src="./resources/image/attack-on-titan-2.png">
-                        </button>
                     </div>
                     <div class="image-product display-flex-center">
                         <div class="image-item">
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="informations-product">
-                <div class="name-product">
+                <div class="name-product" id="name-product">
                     Ataque dos Titãs Vol. 34    
                 </div>
                 <div class="score-product">
@@ -95,31 +95,31 @@
                 </div>
                 <div class="row-separator"></div>
                 <div class="value-align-product">
-                    <div class="value-price-product">R$ 20.00</div>
-                    <div class="value-discont-product">R$ 36.00</div>
+                    <div class="value-price-product" id="price">R$ 20.00</div>
+                    <div class="value-discont-product" id="normal-price">R$ 36.00</div>
                 </div>
                 <div class="value-align-product">
                     <div class="value-title-product">Autor:</div>
-                    <div class="value-informations-product">Hajime Isayama</div>
+                    <div class="value-informations-product" id="author">Hajime Isayama</div>
                 </div>
                 <div class="value-align-product">
                     <div class="value-title-product">Editora:</div>
-                    <div class="value-informations-product">Kodansha Comics</div>
+                    <div class="value-informations-product" id="publishing-company">Kodansha Comics</div>
                 </div>
                 <div class="value-align-product">
                     <div class="value-title-product">Idioma:</div>
-                    <div class="value-informations-product">Inglês</div>
+                    <div class="value-informations-product" id="language">Inglês</div>
                 </div>
                 <div class="value-align-product">
                     <div class="value-title-product">Data de publicação:</div>
-                    <div class="value-informations-product">29 novembro 2022</div>
+                    <div class="value-informations-product" id="publication-data">29 novembro 2022</div>
                 </div>
                 <div class="value-align-product">
                     <div class="value-title-product">Numero de página:</div>
-                    <div class="value-informations-product">832 páginas</div>
+                    <div class="value-informations-product" id="number-pages">832 páginas</div>
                 </div>
                 <div class="value-align-product">   
-                    <div class="value-information-description">O Estrondo esmagou as terras além da Ilha Paradis e tomou inúmeras vidas. Por um lado Armin, Mikasa e os outros descobrem em qual ponto devem atacar Eren. Inimigos, aliados, companheiros e tantas vidas perdidas depois, eles finalmente conseguem chegar até Eren.</div>
+                    <div class="value-information-description" id="description">O Estrondo esmagou as terras além da Ilha Paradis e tomou inúmeras vidas. Por um lado Armin, Mikasa e os outros descobrem em qual ponto devem atacar Eren. Inimigos, aliados, companheiros e tantas vidas perdidas depois, eles finalmente conseguem chegar até Eren.</div>
                 </div>
                 <div class="books-types">
                     <div class="button-radio">

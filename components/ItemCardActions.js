@@ -76,6 +76,7 @@ class ItemCardActions extends HTMLElement {
     connectedCallback() {
 
         this.addButton.addEventListener( 'click', ( event ) => {
+            this.dispatchEvent( EventItem.addItem( 0 ) );
             event.preventDefault();
         } )
 

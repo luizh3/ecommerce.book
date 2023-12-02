@@ -61,7 +61,7 @@ paymentResumeTemplate.innerHTML = `
                 Subtotal
             </div>
             <div class="value" id="subtotal">
-                $99.00
+                $0.00
             </div>
         </div>
         <div class="content-shipping">
@@ -69,7 +69,7 @@ paymentResumeTemplate.innerHTML = `
                 Frete
             </div>
             <div class="value" id="delivery-shipping">
-                $16.00
+                $0.00
             </div>
         </div>
         <div class="content-discount">
@@ -77,14 +77,14 @@ paymentResumeTemplate.innerHTML = `
                 Desconto
             </div>
             <div class="value" id="discount">
-                $16.00
+                $0.00
             </div>
         </div>
         <div class="divisor"></div>
         <div class="content-total">
             <div class="total-description">Total</div>
             <div class="value-total" id="total">
-                $119.00
+                $0.00
             </div>
         </div>
         <div class="content-cash-payment">
@@ -92,7 +92,7 @@ paymentResumeTemplate.innerHTML = `
                 À Vista
             </div>
             <div id="cash-payment">
-                $119.00
+                $0.00
             </div>
         </div>
         <button-primary text="IR PARA O PAGAMENTO" id="button-payment" ></button-primary>
@@ -167,7 +167,6 @@ class PaymentResume extends HTMLElement {
     }
 
     setDisabledButton( value ) {
-        console.log( value )
         this.buttonPayment.disabled = value; 
     }
 

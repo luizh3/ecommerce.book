@@ -66,9 +66,7 @@ class ButtonQuantity extends HTMLElement {
 
         this.item.quantity = quantity
 
-        var evento = EventItem.quantityChanged( this.item );
-
-        this.dispatchEvent( evento );
+        this.dispatchEvent( EventItem.quantityChanged( this.item ) );
     }
 
     increaseQuantity() {

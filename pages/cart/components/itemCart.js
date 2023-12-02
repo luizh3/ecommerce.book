@@ -232,7 +232,7 @@ class ItemCartTemplate extends HTMLElement {
     setValuesByItem( item ) {
 
         this.title = item.name;
-        this.imageUrl = item.image_url;
+        this.imageUrl = item.images_url[0];
         this.sequence = item.sequence;
 
         this.updatePriceAndQuantity( item );

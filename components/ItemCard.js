@@ -79,7 +79,7 @@ itemCartTemplate.innerHTML = `
         }
 
     </style>
-    <a class="content" href="./produto-01.html">
+    <a class="content" id="redirect-link">
        <div class="labels" id="labels"></div>
        <div class="content-informations">
             <div class="img-container">
@@ -122,8 +122,16 @@ class ItemCard extends HTMLElement {
     }
 
     static get observedAttributes() { 
-        return ['imageurl','title','description','price','reviewsnumber', 'score', 'labels' ]; 
+        return ['imageurl','title','description','price','reviewsnumber', 'score', 'labels', 'iditem' ]; 
     }
+
+    get iditem() { 
+        return this.getAttribute( 'iditem' );
+    }
+
+    set iditem( value ) {
+        this.setAttribute( 'iditem', value );
+    }    
 
     get labels() { 
         return this.getAttribute( 'labels' );
@@ -181,6 +189,16 @@ class ItemCard extends HTMLElement {
         this.setAttribute( 'title', value );
     }
 
+    connectedCallback() {
+
+        this.cardActions = this.shadowRoot.querySelector( "item-card-actions" );
+
+        this.cardActions.addEventListener( EventItem.nameAddItem(), () => {
+            this.dispatchEvent( EventItem.addItem( this.iditem ) );
+        })
+
+    }
+
     attributeChangedCallback( name, oldValue, newValue ) {
         
         switch( name.toLowerCase() ){
@@ -233,10 +251,12 @@ class ItemCard extends HTMLElement {
         this.shadowRoot.getElementById('reviews-number').textContent = `(${reviewsNumber})`;
     }
 
+    setProductLink( idProduct ) {
+        this.shadowRoot.getElementById("redirect-link").href = `./produto.html?id=${idProduct}`
+    }
+
     setValuesByItem( item ) {
-
-        console.log( item.reviews.length )
-
+        this.iditem = item.id;
         this.imageURL = item.images_url[0];
         this.title = item.name;
         this.description = item.description;
@@ -244,6 +264,8 @@ class ItemCard extends HTMLElement {
         this.reviewsNumber = item.reviews.length;
         this.score = item.score;
         this.labels = JSON.stringify( [...item.labels] );
+
+        this.setProductLink( this.iditem );
     }
 
     setLabelsElement( jsonObject ){
